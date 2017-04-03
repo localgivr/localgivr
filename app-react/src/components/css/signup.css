@@ -5,6 +5,7 @@ img {
     width: 100%;
 }
 
-.signup-form {
+.signup-form,
+.org-signup-form {
     margin-top: 35px;
 }
