@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+
+.nav {
+    background: #576490;
+    padding: 20px;
+}
