@@ -14,13 +14,20 @@ class Layout extends React.Component {
   render() {
     return <div>
     <header>
-      <div className="nav">
-        <ul className="list-inline pull-right">
-          <li>
-            <button type="button" className="btn btn-default">Sign Up</button>
-          </li>
-        </ul>
-      
+      <div className="row nav">
+      <div className="col-sm-6">
+        <h3>local<strong>givr.</strong></h3>
+      </div>
+        <div className="col-sm-6">
+          <ul className="list-inline pull-right">
+            <li>
+              <button type="button" className="btn btn-default">Sign Up</button>
+            </li>
+            <li>
+              <button type="button" className="btn btn-default">Log In</button>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
     
@@ -31,7 +38,7 @@ class Layout extends React.Component {
     </main>
 
     <footer>
-    <h1>Hello footer.</h1>
+      <h6 className="text-center">Very useful footer info.</h6>
     </footer>
     
     </div>

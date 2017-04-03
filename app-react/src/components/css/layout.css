@@ -6,6 +6,18 @@ img {
 }
 
 .nav {
-    background: #576490;
-    padding: 20px;
+    background: #FAFAFE;
+    font-family: 'Raleway', sans-serif;
+    padding: 15px;
+}
+
+.nav .btn {
+    margin-top: 15px;
+}
+
+footer {
+    background: #FAFAFE;
+    font-family: 'Raleway', sans-serif;
+    font-size: 5px;
+    padding: 15px;
 }
