@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+
+/*user profile*/
+
+#profile-picture {
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+#user-profile-box {
+    margin-top: 25px;
+    border: .5px solid lightgrey;
+    border-radius: 5px;
+}
+
+#location {
+    margin-top: -20px;
+    color: #576490; 
+}
+
+.user-stats {
+    background: #FAFAFE;
+    border: .5px solid lightgray;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.thumbnail {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#needs-met {
+    color: #576490; 
+    font-size: 40px;
+}
+
+
+/*org profile */
