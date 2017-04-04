@@ -34,10 +34,10 @@ class GiveCard extends React.Component {
 
                     <Modal show={this.state.showModal} onHide={this.close}>
                         <Modal.Header closeButton>
-                            <Modal.Title>Modal heading</Modal.Title>
+                            <Modal.Title>Name of Request</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <p>stuff</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea optio nulla, quae, et totam hic dolorum soluta deserunt, deleniti ducimus aspernatur illo accusamus, vel maiores nobis facilis maxime dignissimos quam?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat dolorum qui ex animi perspiciatis debitis facere quisquam, eos maxime provident repellat numquam dolorem natus, sunt, temporibus sit rem ratione magnam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, laboriosam minima quas. Eaque dolorum, omnis animi ducimus tenetur, quidem soluta repudiandae velit! Cupiditate officia earum itaque obcaecati quae, dolores quaerat.</p>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button onClick={this.close}>Close</Button>
