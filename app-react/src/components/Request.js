@@ -27,13 +27,13 @@ class Request extends React.Component {
                         <div className="col-sm-10">
                         <div className="radio">
                             <label>
-                                <input type="radio" name="money" id="money" value="money" />
+                                <input type="radio" name="type" id="money" value="money" />
                                 Monetary Funding
                             </label>
                             </div>
                             <div className="radio">
                             <label>
-                                <input type="radio" name="supplies" id="supplies" value="supplies" />
+                                <input type="radio" name="type" id="supplies" value="supplies" />
                                 Supplies
                             </label>
                             </div>

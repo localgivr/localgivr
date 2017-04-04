@@ -3,32 +3,12 @@ import GiveCard from './GiveCard'
 
 
 class Give extends React.Component {
-    // constructor(props){
-    //     super(props)
-
-    //     this.state = {
-    //         modalIsOpen: false
-    //     }
-    // }
-
-    // openModal(need) {
-    //     this.setState({
-    //         modalIsOpen: true
-    //     })
-    // }
-
-    // //modal stuff?
-
-    // closeModal(need) {
-    //     this.setState({
-    //         modalIsOpen: false
-    //     })
-
-    // }
 
     render() {
+
+
         return <div>
-            <h1>Hello all the lovely give boxes.</h1> <br /> <br />
+            <h1>Give back to your community.</h1> <br /> <br />
             <div className="row">
                 <div className="col-sm-6 col-md-4">
                     <div className="thumbnail">
