@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
@@ -30,7 +30,20 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'figaro'
+gem 'kaminari'
+# gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'pry-rails'
+gem 'faker'
+gem 'sendgrid-ruby'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'pg_search'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
