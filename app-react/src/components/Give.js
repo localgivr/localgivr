@@ -1,33 +1,11 @@
 import React from 'react'
 import GiveCard from './GiveCard'
 
+
 class Give extends React.Component {
-        // contstructor(props) {
-        //     super(props)
-
-        //     this.getNeeds = this.getNeeds.bind(this)
-
-        //     this.state = {
-        //         needs:[]
-        //     }
-        // }
-
-        // componentDidMount() {
-        //     this.getNeeds()
-        // }    
-
-        // getNeeds() {
-        //     fetch('/api/needs')
-        //     .then(res => res.json())
-        //     .then(res => this.setState({needs: res}))
-        //     .then(res => console.log(this.state.needs))
-        // }
-
 
     render() {
-        // var Needs = this.state.needs.map((need, i) => {
-        //     return <GiveCard need = {need} key={i} />
-        // })
+
 
         return <div>
             <h1>Give back to your community.</h1> <br /> <br />
