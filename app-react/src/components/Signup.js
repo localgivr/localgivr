@@ -10,7 +10,7 @@ class Signup extends React.Component {
         this.signup = this.signup.bind(this)
     }
 
-     signup() {
+    signup() {
         browserHistory.push('/give')
     }
 
