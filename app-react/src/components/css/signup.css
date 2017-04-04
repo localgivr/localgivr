@@ -1,11 +1,20 @@
 * {
     box-sizing: border-box;
 }
+
 img {
-    width: 100%;
+    width: 100%; 
 }
 
-.signup-form,
+#give-img {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.signup-form {
+    margin-top: 10px;
+}
+
 .org-signup-form {
     margin-top: 35px;
 }
