@@ -17,6 +17,7 @@ class UserProfile extends React.Component {
                             <h6 className="text-center text-uppercase">Needs Met</h6> <hr/>
                             <h1 className="text-center" id="needs-met">##</h1>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
