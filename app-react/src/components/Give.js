@@ -5,6 +5,7 @@ import GiveCard from './GiveCard'
 class Give extends React.Component {
 
     render() {
+
         return <div>
 
             <h1>Give back to your community.</h1> 
