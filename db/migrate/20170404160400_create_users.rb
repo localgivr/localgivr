@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :needs_met
       t.string :img_url
       t.string :token
+      t.integer :follows_count
 
       t.timestamps
     end
