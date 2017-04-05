@@ -1,5 +1,6 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
+import './css/give.css'
 
 class GiveCard extends React.Component {
     constructor(props) {
@@ -28,7 +29,8 @@ class GiveCard extends React.Component {
             <div className="thumbnail">
                 <img src="https://unsplash.it/200/200/?blur" alt="Cool image!" />
                 <div className="caption">
-                    <h3>Title of Request</h3>
+                    <h3 className="text-uppercase">Title of Request</h3>
+                    <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> Location</div> <br/><br/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla magni est voluptate.</p>
                     <p><a href="#" className="btn btn-default" role="button" onClick={this.open}>Learn More</a></p>
 
