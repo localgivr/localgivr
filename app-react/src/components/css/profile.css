@@ -1,23 +1,27 @@
 * {
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
 }
+
 img {
     width: 100%;
 }
 
-/*user profile*/
-
-#profile-picture {
-    max-height: 100px;
-    max-width: 100px;
-    border-radius: 50%;
-    margin-top: 20px;
-}
+/*both*/
 
 #user-profile-box {
     margin-top: 25px;
     border: .5px solid lightgrey;
     border-radius: 5px;
+}
+
+.edit-profile {
+    margin-right: 7px;
+}
+
+.edit-profile,
+.delete-profile {
+    margin-bottom: 10px;
 }
 
 #location {
@@ -32,15 +36,29 @@ img {
     margin-bottom: 25px;
 }
 
-.thumbnail {
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
 #needs-met {
     color: #576490; 
     font-size: 40px;
 }
 
 
+/*user profile*/
+
+#profile-picture {
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+.thumbnail {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
 /*org profile */
+
+.requests {
+    margin-left: 20px;
+}
