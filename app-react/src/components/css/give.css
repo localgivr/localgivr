@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+img {
+    width: 100%;
+}
+
+.thumbnail {
+    font-family: 'Raleway', sans-serif;
+}
+
+.badge {
+    padding: 7px;
+    background: seagreen;
+}
