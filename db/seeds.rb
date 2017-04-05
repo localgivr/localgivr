@@ -16,7 +16,7 @@ def new_users
       password: "password",
       first_name: Faker::Superhero.descriptor,
       last_name: Faker::Superhero.suffix,
-      phone: Faker::PhoneNumber.phone_number,
+      phone: Faker::PhoneNumber.cell_phone,
       zip: Faker::Address.zip,
       img_url: Faker::Avatar.image
     )
@@ -37,7 +37,7 @@ def new_orgs
       city: Faker::Address.city,
       state: Faker::Address.state_abbr,
       zip: Faker::Address.zip,
-      phone: Faker::PhoneNumber.phone_number,
+      phone: Faker::PhoneNumber.cell_phone,
       email: Faker::Internet.unique.email,
       ein: Faker::Company.ein
     )
@@ -47,7 +47,7 @@ def new_orgs
 end
 
 
-
+Faker::Config.locale = 'en-US'
 
 userslist = User.all.length < 5 ? new_users : User.all
 
