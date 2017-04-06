@@ -11,6 +11,7 @@ import Give from './components/Give'
 import Request from './components/Request'
 import UserProfile from './components/UserProfile'
 import OrgProfile from './components/OrgProfile'
+import UserOnboard from'./components/UserOnboard'
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -22,6 +23,7 @@ ReactDOM.render(
           <Route path='request' component={Request} />
           <Route path='profile' component={UserProfile} />
           <Route path='organization-profile' component={OrgProfile} />
+          <Route path='causes' component={UserOnboard} />
         </Route>
     </Router>,
   document.getElementById('root')
