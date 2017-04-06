@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  story: MyText
+  amount: 1
+  expiration: 2017-04-04
+  link: MyString
+  completed: false
+  img_url: MyString
+  org: one
+  type: one
+
+two:
+  title: MyString
+  story: MyText
+  amount: 1
+  expiration: 2017-04-04
+  link: MyString
+  completed: false
+  img_url: MyString
+  org: two
+  type: two
