@@ -5,4 +5,7 @@ class Org < ApplicationRecord
 
   has_secure_password
   has_secure_token
+
+  validates :name, :email, :phone, uniqueness: true
+  validates  :name, :email, :zip, presence: true
 end
