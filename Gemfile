@@ -44,7 +44,9 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'pg_search'
-gem 'pry-rails'
+gem 'active_model_serializers', '~> 0.10.0'
+
+gem 'rack-cors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
