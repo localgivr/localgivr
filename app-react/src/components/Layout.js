@@ -15,6 +15,7 @@ class Layout extends React.Component {
   }
 
   signin() {
+    console.log(this.state)
     fetch('/api/users/login', {
       method: 'POST',
       headers: {
@@ -22,10 +23,10 @@ class Layout extends React.Component {
       },
 
       body: JSON.stringify({
-        user: { 
+        user: {
           email: this.state.email,
           password: this.state.password
-        }
+          }
       })
     })
 
@@ -36,7 +37,7 @@ class Layout extends React.Component {
         console.log(response);
       
         if (response.user.token) {
-          sessionStorage.setItem('user', JSON.stringify(response));
+          sessionStorage.setItem('token', JSON.stringify(response.user.token));
           location.href = './give';
                 }
         else {
@@ -54,22 +55,16 @@ class Layout extends React.Component {
         <h3>local<strong>givr.</strong></h3>
       </div>
         <div className="col-sm-6">
-        <Form inline>
-    <FormGroup controlId="signin">
-      <ControlLabel>Email</ControlLabel>
-      <FormControl type="text" placeholder="Email" />
-    </FormGroup>
-    <FormGroup controlId="signinPass">
-      <ControlLabel>Password</ControlLabel>
-      <FormControl type="password" placeholder="password" />
-    </FormGroup>
-    </Form>
+        
+<input type="text" onChange={(e) => this.setState({email: e.target.value})} />
+<input type="password" onChange={(e) => this.setState({password: e.target.value})} />
+
           <ul className="list-inline pull-right">
             <li>
-              <button type="button" className="btn btn-default signUp">Sign Up</button>
+              <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
             </li>
             <li>
-              <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
+              <button type="button" className="btn btn-default signUp">Sign Up</button>
             </li>
           </ul>
         </div>
