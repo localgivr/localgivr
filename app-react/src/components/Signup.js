@@ -8,11 +8,10 @@ class Signup extends React.Component {
     constructor(props) {
         super(props)
         this.onboard = this.onboard.bind(this)
+
     }
 
-
-
-     onboard() {
+    onboard() {
         browserHistory.push('/causes')
 
     }
