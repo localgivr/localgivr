@@ -8,6 +8,7 @@ class Layout extends React.Component {
   constructor(props) {
     super(props)
     this.signin=this.signin.bind(this)
+
       this.state = {
         email: '',
         password: ''
@@ -56,15 +57,15 @@ class Layout extends React.Component {
       </div>
         <div className="col-sm-6">
         
-<input type="text" onChange={(e) => this.setState({email: e.target.value})} />
-<input type="password" onChange={(e) => this.setState({password: e.target.value})} />
-
           <ul className="list-inline pull-right">
             <li>
-              <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
+                <input type="text" className="form-control" placeholder="Email" onChange={(e) => this.setState({email: e.target.value})} />
             </li>
             <li>
-              <button type="button" className="btn btn-default signUp">Sign Up</button>
+                <input type="password" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} />
+            </li>
+            <li>
+              <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
             </li>
           </ul>
         </div>
@@ -79,6 +80,7 @@ class Layout extends React.Component {
 
     <footer>
       <h6 className="text-center">Very useful footer info.</h6>
+      <button type="button" className="btn btn-default signUp">Sign Up</button>
     </footer>
     
     </div>
