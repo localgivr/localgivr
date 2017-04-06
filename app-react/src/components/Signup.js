@@ -10,8 +10,11 @@ class Signup extends React.Component {
         this.onboard = this.onboard.bind(this)
     }
 
+
+
      onboard() {
         browserHistory.push('/causes')
+
     }
 
     render() {
