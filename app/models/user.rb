@@ -7,4 +7,7 @@ class User < ApplicationRecord
 
   has_secure_password
   has_secure_token
+
+  validates :email, :phone, uniqueness: true
+  validates  :first_name, :last_name, :email, :zip, presence: true
 end
