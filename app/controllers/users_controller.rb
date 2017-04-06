@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    binding.pry
+    # binding.pry
     @user = User.find_by(email: params[:user][:email])&.
               authenticate(params[:user][:password])
     if @user
