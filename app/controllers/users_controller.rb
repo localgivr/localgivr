@@ -21,8 +21,9 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:email])&.
-              authenticate(params[:password])
+    # binding.pry
+    @user = User.find_by(email: params[:user][:email])&.
+              authenticate(params[:user][:password])
     if @user
       render json: @user, serializer: UserExtendedSerializer
     else
@@ -32,6 +33,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.permit(:first_name, :last_name, :email, :phone, :password, :zip, :img_url)
+    params.require(:user).permit(:first_name, :last_name, :email, :phone, :password, :zip, :img_url)
   end
 end
