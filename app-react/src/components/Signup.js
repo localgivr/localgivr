@@ -51,7 +51,7 @@ class Signup extends React.Component {
 
             if (response.user.token) {
                 sessionStorage.setItem('token', JSON.stringify(response.user.token));
-                location.href = './causes'
+                browserHistory.push('/causes') 
             }
             else {
                 alert('There was an error. Please view your console.');
