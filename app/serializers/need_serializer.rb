@@ -12,7 +12,9 @@ class NeedSerializer < ActiveModel::Serializer
         city: object.org.city,
         state: object.org.state,
         zip: object.org.zip
-      }
+      },
+      ein: object.org.ein,
+      verified: object.org.verified
     }
   end
 
