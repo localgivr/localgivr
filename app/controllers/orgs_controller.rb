@@ -32,6 +32,6 @@ class OrgsController < ApplicationController
 
   private
   def org_params
-    params.permit(:name, :email, :phone, :password, :street, :city, :state, :zip, :ein)
+    params.require(:org).permit(:name, :email, :phone, :password, :street, :city, :state, :zip, :ein)
   end
 end

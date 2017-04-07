@@ -59,7 +59,7 @@ def new_needs(orgs)
   orgs.each do |o|
     need = o.needs.create!(
       title: Faker::Space.planet,
-      story: Faker::Hipster.paragraph,
+      story: Faker::Hipster.paragraphs(3),
       amount: rand(1..100),
       expiration: rand(2..30).days.from_now,
       link: Faker::Internet.url,
