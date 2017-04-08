@@ -15,6 +15,12 @@ class GiveCard extends React.Component {
 
     }
 
+    getNeeds() {
+        fetch('/api/needs')
+        .then(res => res.json())
+        .then(res => this.setState({needs: res}))
+    }
+
     close() {
         this.setState({ showModal: false });
     }
@@ -25,7 +31,7 @@ class GiveCard extends React.Component {
 
     render() {
         return <div>
-        <div className="col-sm-6">
+        <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
                 <img src="https://unsplash.it/200/200/?blur" alt="Cool image!" />
                 <div className="caption">
