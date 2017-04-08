@@ -25,7 +25,7 @@ class GiveCard extends React.Component {
 
     render() {
         return <div>
-        <div className="col-sm-6">
+        <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
                 <img src="https://unsplash.it/200/200/?blur" alt="Cool image!" />
                 <div className="caption">
