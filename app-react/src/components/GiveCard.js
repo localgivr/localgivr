@@ -15,6 +15,12 @@ class GiveCard extends React.Component {
 
     }
 
+    getNeeds() {
+        fetch('/api/needs')
+        .then(res => res.json())
+        .then(res => this.setState({needs: res}))
+    }
+
     close() {
         this.setState({ showModal: false });
     }
