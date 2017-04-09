@@ -8,12 +8,17 @@ class GiveCard extends React.Component {
 
         this.close = this.close.bind(this)
         this.open = this.open.bind(this)
+        this.getNeeds = this.getNeeds.bind(this)
 
         this.state = {
-            showModal: false
+            showModal: false,
+            //needs: []
         }
-
     }
+
+    // componentDidMount() {
+    //     this.getNeeds()
+    // }
 
     getNeeds() {
         fetch('/api/needs')
@@ -30,12 +35,13 @@ class GiveCard extends React.Component {
     }
 
     render() {
+        console.log(this.props.needs)
         return <div>
         <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
-                <img src="https://unsplash.it/200/200/?blur" alt="Cool image!" />
+                <img src="https://unsplash.it/200/200/?blur" alt="{this.props.title}" />
                 <div className="caption">
-                    <h3 className="text-uppercase">Title of Request</h3>
+                    <h3 className="text-uppercase">Title</h3>
                     <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> Location</div> <br/><br/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla magni est voluptate.</p>
                     <p><a href="#" className="btn btn-default" role="button" onClick={this.open}>Learn More</a></p>
