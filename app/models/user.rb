@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :typings
   has_many :types, through: :typings
 
+  # scope :
+
   has_secure_password
   has_secure_token
 
@@ -12,6 +14,9 @@ class User < ApplicationRecord
   validates  :first_name, :last_name, :email, :zip, presence: true
 
   def feed
-    
+
   end
 end
+
+
+# Need.joins(:types, :cats).where("types.id IN ?", user.types.ids).where("needs.org_id IN ? OR cats.id IN ?", user.followed_orgs.ids, user.followed_cats.ids)
