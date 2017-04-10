@@ -51,7 +51,7 @@ class GiveCard extends React.Component {
                     <p><a href="#" className="btn btn-default" role="button" onClick={this.open}>Learn More</a></p>
 
                     <Modal show={this.state.showModal} onHide={this.close}>
-                        <Modal.Header closeButton>
+                        <Modal.Header closeButton className="modal-header">
                             <Modal.Title>{this.props.title}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
