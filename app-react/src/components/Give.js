@@ -1,7 +1,6 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
 import GiveCard from './GiveCard'
-import Needs from './Needs'
 import './css/give.css'
 
 
@@ -12,7 +11,7 @@ class Give extends React.Component {
         this.getNeeds = this.getNeeds.bind(this)
 
         this.state = {
-            needs: []
+           needs: []
         }
     }
 
@@ -21,15 +20,18 @@ class Give extends React.Component {
     }
 
     getNeeds() {
+                
         fetch('/api/needs')
         .then(res => res.json())
-        .then(res => this.setState({needs: res}))
-        .then(res => this.console.log(this.state.needs))
+       // .then(res => console.log(res.needs))
+        .then(res => this.setState({needs: res.needs}))
+        //.then(res => this.setState({needs: res}))
+        //.then(res => console.log(this.state.needs))
     }
 
     render() {
-        var Needs = this.state.needs.map((need, i) => {
-        return <Needs need = {need}  key={i} />
+        var GiveCards = this.state.needs.map((need, i) => {
+            return <GiveCard {...need}  key={i} />
         })
 
         return <div className="givePage">
@@ -38,7 +40,7 @@ class Give extends React.Component {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati fugit molestias doloribus optio ipsam debitis voluptas dolorem nihil, maxime sequi veritatis sunt atque asperiores assumenda reiciendis velit ad iusto tenetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet facilis, id quae a in accusantium, molestias amet deserunt. Ipsam, quas cumque, fuga officiis reprehenderit soluta est. Voluptas, unde totam quidem! </p><br /> <br />
 
             <div className="row">
-                {Needs}
+                {GiveCards}
             </div>
         </div>
     }
