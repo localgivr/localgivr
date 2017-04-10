@@ -1,4 +1,7 @@
 class Need < ApplicationRecord
+
+  scope :active, -> { where('expiration > ?', Time.now)}
+
   belongs_to :org
   belongs_to :type
 
