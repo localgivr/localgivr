@@ -41,7 +41,7 @@ class GiveCard extends React.Component {
             <div className="thumbnail">
                 <img src="https://unsplash.it/200/200/?blur" alt="{this.props.title}" />
                 <div className="caption">
-                    <h3 className="text-uppercase">Title</h3>
+                    <h3 className="text-uppercase">{this.props.title} Title</h3>
                     <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> Location</div> <br/><br/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla magni est voluptate.</p>
                     <p><a href="#" className="btn btn-default" role="button" onClick={this.open}>Learn More</a></p>
