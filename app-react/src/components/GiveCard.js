@@ -1,4 +1,5 @@
 import React from 'react'
+// import browserHistory from 'react-router'
 import { Modal, Button } from 'react-bootstrap'
 import './css/give.css'
 
@@ -6,13 +7,29 @@ class GiveCard extends React.Component {
     constructor(props) {
         super(props)
 
+        this.donate = this.donate.bind(this)
         this.close = this.close.bind(this)
         this.open = this.open.bind(this)
+        this.getNeeds = this.getNeeds.bind(this)
 
         this.state = {
-            showModal: false
+            showModal: false,
+            //needs: []
         }
+    }
 
+    // componentDidMount() {
+    //     this.getNeeds()
+    // }
+
+    getNeeds() {
+        fetch('/api/needs')
+        .then(res => res.json())
+        .then(res => this.setState({needs: res}))
+    }
+
+    donate() {
+        window.open(this.props.link, '_blank')
     }
 
     close() {
@@ -24,24 +41,26 @@ class GiveCard extends React.Component {
     }
 
     render() {
-        return <div>
-        <div className="col-sm-6">
+        return <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
-                <img src="https://unsplash.it/200/200/?blur" alt="Cool image!" />
+                <img src={this.props.img_url} alt={this.props.title} />
                 <div className="caption">
-                    <h3 className="text-uppercase">Title of Request</h3>
-                    <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> Location</div> <br/><br/>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla magni est voluptate.</p>
+                    <h3 className="text-uppercase">{this.props.title}</h3>
+                    <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> {this.props.org.city}, {this.props.org.state}</div> <br/><br/>
+                    <p>{this.props.story.slice(0, 70)}...</p>
                     <p><a href="#" className="btn btn-default" role="button" onClick={this.open}>Learn More</a></p>
 
                     <Modal show={this.state.showModal} onHide={this.close}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Name of Request</Modal.Title>
+                        <Modal.Header closeButton className="modal-header">
+                            <Modal.Title>{this.props.title}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea optio nulla, quae, et totam hic dolorum soluta deserunt, deleniti ducimus aspernatur illo accusamus, vel maiores nobis facilis maxime dignissimos quam?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat dolorum qui ex animi perspiciatis debitis facere quisquam, eos maxime provident repellat numquam dolorem natus, sunt, temporibus sit rem ratione magnam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, laboriosam minima quas. Eaque dolorum, omnis animi ducimus tenetur, quidem soluta repudiandae velit! Cupiditate officia earum itaque obcaecati quae, dolores quaerat.</p>
+                            <h3>{this.props.org.name}</h3>
+                            <p>{this.props.story}</p><br />
+                            <p><strong>Amount Needed: </strong> {this.props.amount}</p>
                         </Modal.Body>
                         <Modal.Footer>
+                            <Button bsStyle="success" onClick={this.donate}>Donate</Button>
                             <Button onClick={this.close}>Close</Button>
                         </Modal.Footer>
                     </Modal>
@@ -49,7 +68,6 @@ class GiveCard extends React.Component {
                 </div>
             </div>
         </div>
-    </div>
     }
 }
 
