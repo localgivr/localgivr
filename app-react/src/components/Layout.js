@@ -64,12 +64,13 @@ class Layout extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div className="body">
     <header>
       <div className="row nav">
-      <div className="col-sm-6">
-        <h3>local<strong>givr.</strong></h3>
+      <div className="col-sm-1">
+        <h3>local <strong>givr.</strong></h3>
       </div>
+      <div className="col-sm-5"></div>
         <div className="col-sm-6">
           <ul className="list-inline pull-right">
             <li>
@@ -90,14 +91,14 @@ class Layout extends React.Component {
     </header>
     
     <main>
-      <div className="container">
+
         {this.props.children}
-      </div>
+
     </main>
 
     <footer>
       <h6 className="text-center">Very useful footer info.</h6>
-      <button type="button" className="btn btn-default signUp">Sign Up</button>
+      {/*<button type="button" className="btn btn-default signUp">Sign Up</button>*/}
     </footer>
     
     </div>

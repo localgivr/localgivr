@@ -6,21 +6,38 @@ img {
 }
 
 .nav {
-    /*background: #FAFAFE;*/
-    background: url(/img/absurdidad.png);
+    background: #406056;
+    /*background: url(/img/absurdidad.png);*/
     font-family: 'Raleway', sans-serif;
-    padding: 15px;
-    opacity: 0.7;
+    padding: 25px;
+    color: white;
+    border-bottom: 5px solid #D9F5A2;
 }
 
-/*.nav .btn {
-    margin-top: 15px;
-}*/
+.nav h3 {
+    border: 1px solid white;
+    padding: 7px;
+    margin-top: -7px;
+}
+
+.nav ul {
+    margin-top: 10px;
+}
+
+.nav .btn {
+    background: #D9F5A2;
+    border: none;
+}
+
+.nav .btn:hover {
+    background: #E3F7BB;
+}
 
 
 footer {
-    background: url(/img/absurdidad.png);
+    background: #406056;
     font-family: 'Raleway', sans-serif;
+    color: white;
     font-size: 5px;
     padding: 20px;
 }
