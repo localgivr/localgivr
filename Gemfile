@@ -44,6 +44,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'pg_search'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'zip-codes'
 
 gem 'rack-cors'
 # Use Capistrano for deployment
