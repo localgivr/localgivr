@@ -22,13 +22,13 @@ class Give extends React.Component {
         fetch('/api/needs')
         .then(res => res.json())
         .then(res => this.setState({needs: res}))
-        .then(res => this.console.log(this.state.needs))
+        //.then(res => this.console.log(this.state.needs))
     }
 
     render() {
-        var Needs = this.state.needs.map((need, i) => {
-        return <Needs need = {need} key={i} />
-        })
+        // var Needs = this.state.needs.map((need, i) => {
+        // return <Needs need = {need} key={i} />
+        // })
 
         return <div className="givePage">
 

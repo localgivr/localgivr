@@ -1,6 +1,6 @@
 import React from 'react';
 //import { browserHistory } from 'react-router'
-import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
+// import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 // import React, { Component } from 'react';
 import './css/layout.css'
 
@@ -9,12 +9,13 @@ class Layout extends React.Component {
     super(props)
     this.signin = this.signin.bind(this)
     this.signedIn = this.signedIn.bind(this)
-    this.toggleSignOut = this.toggleSignOut.bind(this)
+    //this.toggleSignOut = this.toggleSignOut.bind(this)
     this.signout = this.signout.bind(this)
 
       this.state = {
         email: '',
         password: ''
+        
             }
   }
 
@@ -28,7 +29,8 @@ class Layout extends React.Component {
       body: JSON.stringify({
         user: {
           email: this.state.email,
-          password: this.state.password
+          password: this.state.password,
+          token: this.state.token
           }
       })
     })
@@ -50,13 +52,21 @@ class Layout extends React.Component {
   })
 }
 
-  signedIn() {
+   signedIn() {
     sessionStorage.getItem('token')
-  }
+   }
 
-  toggleSignOut() {
+  // toggleSignOut() {
     
-  }
+  //   var token = sessionStorage.getItem('token')
+  //   console.log(token)
+  //   if (token) {
+  //     // return <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button> 
+  //   }
+  //   else {
+  //     return <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
+  //   }
+  // }
 
   signout() {
     //sessionStorage.clear();
@@ -64,6 +74,7 @@ class Layout extends React.Component {
   }
 
   render() {
+    const signedIn = this.state.signedIn
     return <div>
     <header>
       <div className="row nav">
@@ -79,10 +90,17 @@ class Layout extends React.Component {
                 <input type="password" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} />
             </li>
             <li>
-              <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
+              {/*<button type="button" className="btn btn-default logIn" onClick={this.toggleSignOut}>Log In</button>*/}
             </li>
             <li>
-              <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>
+              {/*<button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>*/}
+            </li>
+            <li>
+              {signedIn ? (
+                <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>
+              ) : (
+                <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
+              )}
             </li>
           </ul>
         </div>

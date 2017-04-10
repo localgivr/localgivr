@@ -33,7 +33,7 @@ class GiveCard extends React.Component {
         return <div>
         <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
-                <img src="https://unsplash.it/200/200/?blur" alt="Cool image!" />
+                <img src="https://unsplash.it/200/200/?blur" alt="Cool stuff!" />
                 <div className="caption">
                     <h3 className="text-uppercase">Title of Request</h3>
                     <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> Location</div> <br/><br/>
