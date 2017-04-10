@@ -13,10 +13,12 @@ class NeedsController < ApplicationController
 
   def create
     @need = Need.new(need_params)
-    
-    #set cating
-    #set type
-
+    if @need.save
+      #assuming we're getting an array of cat name/hashes within need
+      params[:need][:cats].each { |c| @need.cats << Cat.find(c[:id]) }
+    else
+      request_error(@need.errors.full_messages)
+    end
   end
 
   def update
@@ -30,9 +32,10 @@ class NeedsController < ApplicationController
   private
 
   def need_params
-    params.require(:need).permit(:title, :story, :amount, :expiration, :link, :img_url, :type)
+    params.require(:need).permit(:title, :story, :amount, :expiration, :link, :img_url, :type_id)
     #TODO: create a valid expiration
     #TODO: add unit for  quantity?
+    #TODO: add location?
   end
 
 end
