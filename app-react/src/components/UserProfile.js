@@ -3,7 +3,7 @@ import './css/profile.css'
 
 class UserProfile extends React.Component {
     render() {
-        return <div>
+        return <div className="container">
             <div className="row">
                 <div className="col-sm-5">
                     <ul className="list-unstyled text-center" id="user-profile-box">

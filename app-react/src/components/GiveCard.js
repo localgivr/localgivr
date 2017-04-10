@@ -41,7 +41,8 @@ class GiveCard extends React.Component {
     }
 
     render() {
-        return <div className="col-sm-6 col-md-4">
+        return <div >
+        <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
                 <img src={this.props.img_url} alt={this.props.title} />
                 <div className="caption">
@@ -60,7 +61,7 @@ class GiveCard extends React.Component {
                             <p><strong>Amount Needed: </strong> {this.props.amount}</p>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button bsStyle="success" onClick={this.donate}>Donate</Button>
+                            <Button bsStyle="success" className="donate-button" onClick={this.donate}>Donate</Button>
                             <Button onClick={this.close}>Close</Button>
                         </Modal.Footer>
                     </Modal>
@@ -68,6 +69,7 @@ class GiveCard extends React.Component {
                 </div>
             </div>
         </div>
+    </div>
     }
 }
 

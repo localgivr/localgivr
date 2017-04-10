@@ -7,15 +7,28 @@ img {
     width: 100%;
 }
 
+#give-header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://unsplash.it/3264/2448?image=1047);
+    background-size: cover;
+    margin-top: 25px;
+    padding: 100px 100px 100px 100px;
+    color: white;
+}
+
 .thumbnail {
     font-family: 'Raleway', sans-serif;
 }
 
 .badge {
     padding: 7px;
-    background: seagreen;
+    background: #406056;
 }
 
 .modal-header {
-    background: #F9E4D0;
+    background: #D9F5A2;
+}
+
+.donate-button {
+    background: #406056;
+    color: white;
 }

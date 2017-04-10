@@ -65,17 +65,18 @@ class Signup extends React.Component {
     }
 
     render() {
-        return <div>
+        return <div className="container">
         <div className="row">
            <div className="col-sm-5">
-                <img id="give-img" className="img-responsive" src="/img/giving-photo.jpg" />
+                {/*<img id="give-img" className="img-responsive" src="/img/giving-photo.jpg" />*/}
+                <img id="give-img" className="img-responsive" src="https://unsplash.it/4896/3264?image=882" />
             </div>
 
             <div className="signup-form">
-            <div className="col-sm-7">
+            <div className="col-sm-7 signup-card">
                 <div className="signup-text">
                     <h1>Sign up to start making an impact.</h1>
-                    <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident possimus earum velit culpa officia neque, aperiam similique ipsam debitis modi! Voluptatibus beatae nam sequiadipisicing elit. Blanditiis natus impedit alias molestias nisi beatae reprehenderit praesentium, ipsum enim, corporis reiciendis maiores sint est explicabo. Tempora quaerat magni reprehenderit, nemo.</h5>
+                    <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident possimus earum velit culpa officia neque, aperiam similique ipsam debitis modi! Voluptatibus beatae nam sequiadipisicing elit.</h5>
                 </div>
                 <br/><br/>
 
