@@ -47,19 +47,12 @@ def new_orgs
   orgs
 end
 
-# def get_cats(cats)
-#   cats.map{ |c| Cat.find_or_create_by(name: c)}
-# end
-#
-# def get_types(types)
-#   types.map{ |t| Type.find_or_create_by(name: t)}
-# end
 
 def new_needs(orgs)
   orgs.each do |o|
     need = o.needs.create!(
       title: Faker::Space.planet,
-      story: Faker::Hipster.paragraphs(3),
+      story: Faker::Hipster.paragraphs(1),
       amount: rand(1..100),
       expiration: rand(2..30).days.from_now,
       link: Faker::Internet.url,
@@ -71,6 +64,10 @@ def new_needs(orgs)
     Cating.find_or_create_by(need: need, cat: @cats.sample)
     need.save
   end
+end
+
+def new_follows(users, orgs)
+
 end
 
 @cats = %w(animals culture community education health environment social)

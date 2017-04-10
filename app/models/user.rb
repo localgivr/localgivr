@@ -10,4 +10,8 @@ class User < ApplicationRecord
 
   validates :email, :phone, uniqueness: true
   validates  :first_name, :last_name, :email, :zip, presence: true
+
+  def feed
+    
+  end
 end
