@@ -1,5 +1,5 @@
 import React from 'react';
-//import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 // import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 // import React, { Component } from 'react';
 import './css/layout.css'
@@ -53,7 +53,7 @@ class Layout extends React.Component {
 }
 
    signedIn() {
-    sessionStorage.getItem('token')
+    return sessionStorage.getItem('token')
    }
 
   // toggleSignOut() {
@@ -71,11 +71,12 @@ class Layout extends React.Component {
   signout() {
     //sessionStorage.clear();
     sessionStorage.removeItem('token');
+    browserHistory.push('/')
   }
 
   render() {
-    const signedIn = this.state.signedIn
-    
+    const signedIn = this.signedIn()
+
     return <div className="body">
     <header>
       <div className="row nav">
@@ -84,27 +85,25 @@ class Layout extends React.Component {
       </div>
       <div className="col-sm-5"></div>
         <div className="col-sm-6">
-          <ul className="list-inline pull-right">
-            <li>
-                <input type="text" className="form-control" placeholder="Email" onChange={(e) => this.setState({email: e.target.value})} />
-            </li>
-            <li>
-                <input type="password" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} />
-            </li>
-            <li>
-              {/*<button type="button" className="btn btn-default logIn" onClick={this.toggleSignOut}>Log In</button>*/}
-            </li>
-            <li>
-              {/*<button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>*/}
-            </li>
-            <li>
               {signedIn ? (
-                <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>
+                <ul className="list-inline pull-right">
+                  <li>
+                    <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>
+                  </li>
+                </ul>
               ) : (
-                <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
+                <ul className="list-inline pull-right">
+                  <li>
+                    <input type="text" className="form-control" placeholder="Email" onChange={(e) => this.setState({email: e.target.value})} />
+                  </li>
+                  <li>
+                      <input type="password" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} />
+                  </li>
+                  <li>
+                      <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
+                  </li>
+                </ul>
               )}
-            </li>
-          </ul>
         </div>
       </div>
     </header>
