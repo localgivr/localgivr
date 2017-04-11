@@ -1,6 +1,6 @@
 import React from 'react';
-//import { browserHistory } from 'react-router'
-import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
+import { browserHistory } from 'react-router'
+// import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 // import React, { Component } from 'react';
 import './css/layout.css'
 
@@ -9,12 +9,12 @@ class Layout extends React.Component {
     super(props)
     this.signin = this.signin.bind(this)
     this.signedIn = this.signedIn.bind(this)
-    this.toggleSignOut = this.toggleSignOut.bind(this)
     this.signout = this.signout.bind(this)
 
       this.state = {
         email: '',
         password: ''
+        
             }
   }
 
@@ -28,7 +28,8 @@ class Layout extends React.Component {
       body: JSON.stringify({
         user: {
           email: this.state.email,
-          password: this.state.password
+          password: this.state.password,
+          token: this.state.token
           }
       })
     })
@@ -50,20 +51,19 @@ class Layout extends React.Component {
   })
 }
 
-  signedIn() {
-    sessionStorage.getItem('token')
-  }
-
-  toggleSignOut() {
-    
-  }
+   signedIn() {
+    return sessionStorage.getItem('token')
+   }
 
   signout() {
-    //sessionStorage.clear();
+
     sessionStorage.removeItem('token');
+    browserHistory.push('/')
   }
 
   render() {
+    const signedIn = this.signedIn()
+
     return <div className="body">
     <header>
       <div className="row nav">
@@ -72,20 +72,25 @@ class Layout extends React.Component {
       </div>
       <div className="col-sm-5"></div>
         <div className="col-sm-6">
-          <ul className="list-inline pull-right">
-            <li>
-                <input type="text" className="form-control" placeholder="Email" onChange={(e) => this.setState({email: e.target.value})} />
-            </li>
-            <li>
-                <input type="password" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} />
-            </li>
-            <li>
-              <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
-            </li>
-            <li>
-              <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>
-            </li>
-          </ul>
+              {signedIn ? (
+                <ul className="list-inline pull-right">
+                  <li>
+                    <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>
+                  </li>
+                </ul>
+              ) : (
+                <ul className="list-inline pull-right">
+                  <li>
+                    <input type="text" className="form-control" placeholder="Email" onChange={(e) => this.setState({email: e.target.value})} />
+                  </li>
+                  <li>
+                      <input type="password" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} />
+                  </li>
+                  <li>
+                      <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
+                  </li>
+                </ul>
+              )}
         </div>
       </div>
     </header>

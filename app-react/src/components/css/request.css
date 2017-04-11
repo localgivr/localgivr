@@ -5,3 +5,14 @@ img {
     width: 100%;
 }
 
+.request-header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://unsplash.it/2509/1673?image=635);
+    background-size: cover;
+    background-position: center;
+    padding: 100px 100px 100px 100px;
+    color: white;
+}
+
+.request-form {
+    margin-top: 50px;
+}
