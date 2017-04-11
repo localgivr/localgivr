@@ -23,6 +23,7 @@ class Give extends React.Component {
                 
         fetch('/api/needs')
         .then(res => res.json())
+
        // .then(res => console.log(res.needs))
         .then(res => this.setState({needs: res.needs}))
     }

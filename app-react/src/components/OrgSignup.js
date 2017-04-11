@@ -111,7 +111,7 @@ class OrgSignup extends React.Component {
                 <div className="form-group">
                     <label for="zip" className="col-sm-2 control-label">Zip Code</label>
                     <div className="col-sm-10">
-                    <input type="number" className="form-control" id="zip" placeholder="46225" onChange={(e) => this.setState({zip: e.target.value})} />
+                    <input type="number" className="form-control" id="zip" placeholder="46225" onChange={(e) => this.setState({zip: e.target.value})} />s
                     </div>
                 </div>
                 <div className="form-group">
