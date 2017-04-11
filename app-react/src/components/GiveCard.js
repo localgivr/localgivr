@@ -44,7 +44,7 @@ class GiveCard extends React.Component {
         return <div >
         <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
-                <img src={this.props.img_url} alt={this.props.title} />
+                <img className="thumbnail-img" src={this.props.img_url} alt={this.props.title} />
                 <div className="caption">
                     <h3 className="text-uppercase">{this.props.title}</h3>
                     <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> {this.props.org.city}, {this.props.org.state}</div> <br/><br/>

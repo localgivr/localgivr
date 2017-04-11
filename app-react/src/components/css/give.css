@@ -18,6 +18,10 @@ img {
     font-family: 'Raleway', sans-serif;
 }
 
+.thumbnail-img {
+    max-height: 200px;
+}
+
 .badge {
     padding: 7px;
     background: #406056;
