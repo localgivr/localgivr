@@ -9,7 +9,6 @@ class Layout extends React.Component {
     super(props)
     this.signin = this.signin.bind(this)
     this.signedIn = this.signedIn.bind(this)
-    //this.toggleSignOut = this.toggleSignOut.bind(this)
     this.signout = this.signout.bind(this)
 
       this.state = {
@@ -56,20 +55,8 @@ class Layout extends React.Component {
     return sessionStorage.getItem('token')
    }
 
-  // toggleSignOut() {
-    
-  //   var token = sessionStorage.getItem('token')
-  //   console.log(token)
-  //   if (token) {
-  //     // return <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button> 
-  //   }
-  //   else {
-  //     return <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
-  //   }
-  // }
-
   signout() {
-    //sessionStorage.clear();
+
     sessionStorage.removeItem('token');
     browserHistory.push('/')
   }
