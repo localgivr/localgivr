@@ -59,9 +59,12 @@ class OrgSignup extends React.Component {
 
     render() {
         return <div> 
-        <div className="org-signup-form">
-
-            <div className="row">
+        <div className="org-give-header">
+            <h1>Let your community lend a hand.</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus eos dignissimos numquam provident nostrum maxime voluptatem, natus quo repudiandae odio distinctio, praesentium cumque quis quasi vel pariatur accusamus corporis!</p>
+        </div>
+        <div className="container org-give-card">
+            <div className="row org-signup-form">
                 <div className="form-horizontal">
                 <div className="form-group">
                     <label for="name" className="col-sm-2 control-label">Organization Name</label>

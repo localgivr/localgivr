@@ -22,6 +22,6 @@ class ApplicationController < ActionController::Base
 
   def require_org
       request_error("You need to be logged in as an organization.", 401) unless current_org
-  end
+  end 
 
 end

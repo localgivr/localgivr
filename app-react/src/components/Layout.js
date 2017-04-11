@@ -7,7 +7,10 @@ import './css/layout.css'
 class Layout extends React.Component {
   constructor(props) {
     super(props)
-    this.signin=this.signin.bind(this)
+    this.signin = this.signin.bind(this)
+    this.signedIn = this.signedIn.bind(this)
+    this.toggleSignOut = this.toggleSignOut.bind(this)
+    this.signout = this.signout.bind(this)
 
       this.state = {
         email: '',
@@ -16,7 +19,6 @@ class Layout extends React.Component {
   }
 
   signin() {
-    console.log(this.state)
     fetch('/api/users/login', {
       method: 'POST',
       headers: {
@@ -46,17 +48,30 @@ class Layout extends React.Component {
             console.log(response);
         }
   })
+}
+
+  signedIn() {
+    sessionStorage.getItem('token')
+  }
+
+  toggleSignOut() {
+    
+  }
+
+  signout() {
+    //sessionStorage.clear();
+    sessionStorage.removeItem('token');
   }
 
   render() {
-    return <div>
+    return <div className="body">
     <header>
       <div className="row nav">
-      <div className="col-sm-6">
-        <h3>local<strong>givr.</strong></h3>
+      <div className="col-sm-1">
+        <h3>local <strong>givr.</strong></h3>
       </div>
+      <div className="col-sm-5"></div>
         <div className="col-sm-6">
-        
           <ul className="list-inline pull-right">
             <li>
                 <input type="text" className="form-control" placeholder="Email" onChange={(e) => this.setState({email: e.target.value})} />
@@ -67,20 +82,23 @@ class Layout extends React.Component {
             <li>
               <button type="button" className="btn btn-default logIn" onClick={this.signin}>Log In</button>
             </li>
+            <li>
+              <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>
+            </li>
           </ul>
         </div>
       </div>
     </header>
     
     <main>
-      <div className="container">
+
         {this.props.children}
-      </div>
+
     </main>
 
     <footer>
       <h6 className="text-center">Very useful footer info.</h6>
-      <button type="button" className="btn btn-default signUp">Sign Up</button>
+      {/*<button type="button" className="btn btn-default signUp">Sign Up</button>*/}
     </footer>
     
     </div>
