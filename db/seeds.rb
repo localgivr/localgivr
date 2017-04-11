@@ -22,7 +22,7 @@ Faker::Config.locale = 'en-US'
 @cats = %w(animals culture community education health environment social)
 @types = %w(donation supplies volunteer)
 
-@dogs = %w(https://perchprod.s3.amazonaws.com/profile_images/user6.squarespace https://www.dogspuppiesforsale.com/uploads/source/Category%20update/Bernese%20Mountain/Bernese%20Mountain%20puppies%20for%20sale%203.jpg)
+@dogs = %w(https://perchprod.s3.amazonaws.com/profile_images/user6.squarespace https://www.dogspuppiesforsale.com/uploads/source/Category%20update/Bernese%20Mountain/Bernese%20Mountain%20puppies%20for%20sale%203.jpg https://s-media-cache-ak0.pinimg.com/236x/46/99/16/469916823a409b4ade290bbd94844fd7.jpg)
 
 
 # creation methods
