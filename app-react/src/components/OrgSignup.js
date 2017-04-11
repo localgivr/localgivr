@@ -67,51 +67,51 @@ class OrgSignup extends React.Component {
             <div className="row org-signup-form">
                 <div className="form-horizontal">
                 <div className="form-group">
-                    <label for="name" className="col-sm-2 control-label">Organization Name</label>
+                    <label htmlFor="name" className="col-sm-2 control-label">Organization Name</label>
                     <div className="col-sm-10">
                     <input type="text" className="form-control" id="name" placeholder="Organization Name" onChange={(e) => this.setState({name: e.target.value})} />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label for="password" className="col-sm-2 control-label">Password</label>
+                    <label htmlFor="password" className="col-sm-2 control-label">Password</label>
                     <div className="col-sm-10">
                     <input type="password" className="form-control" id="password" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label for="email" className="col-sm-2 control-label">Contact Email</label>
+                    <label htmlFor="email" className="col-sm-2 control-label">Contact Email</label>
                     <div className="col-sm-10">
                     <input type="email" className="form-control" id="email" placeholder="Email" onChange={(e) => this.setState({email: e.target.value})} />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label for="phone" className="col-sm-2 control-label">Contact Number</label>
+                    <label htmlFor="phone" className="col-sm-2 control-label">Contact Number</label>
                     <div className="col-sm-10">
                     <input type="tel" className="form-control" id="phone" placeholder="(XXX) XXX-XXXX" onChange={(e) => this.setState({phone: e.target.value})} />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label for="street" className="col-sm-2 control-label">Address</label>
+                    <label htmlFor="street" className="col-sm-2 control-label">Address</label>
                     <div className="col-sm-10">
                     <input type="text" className="form-control" id="street" placeholder="123 Appletree Dr., Suite 500" onChange={(e) => this.setState({street: e.target.value})} />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label for="city" className="col-sm-2 control-label">City</label>
+                    <label htmlFor="city" className="col-sm-2 control-label">City</label>
                     <div className="col-sm-10">
                     <input type="text" className="form-control" id="city" placeholder="Indianapolis" onChange={(e) => this.setState({city: e.target.value})} />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label for="state" className="col-sm-2 control-label">State</label>
+                    <label htmlFor="state" className="col-sm-2 control-label">State</label>
                     <div className="col-sm-10">
                     <input type="text" className="form-control" id="state" placeholder="Indiana" onChange={(e) => this.setState({state: e.target.value})} />
                     </div>
                 </div>
                 <div className="form-group">
-                    <label for="zip" className="col-sm-2 control-label">Zip Code</label>
+                    <label htmlFor="zip" className="col-sm-2 control-label">Zip Code</label>
                     <div className="col-sm-10">
-                    <input type="number" className="form-control" id="zip" placeholder="46225" onChange={(e) => this.setState({zip: e.target.value})} />s
+                    <input type="number" className="form-control" id="zip" placeholder="46225" onChange={(e) => this.setState({zip: e.target.value})} />
                     </div>
                 </div>
                 <div className="form-group">
