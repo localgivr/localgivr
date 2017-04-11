@@ -1,6 +1,7 @@
 class Need < ApplicationRecord
 
   scope :active, -> { where('expiration > ? AND completed = ?', Time.local(2017,4,28), false)}
+  
 
   belongs_to :org, :counter_cache => true
   belongs_to :type

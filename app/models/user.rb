@@ -28,15 +28,29 @@ end
 
 
 ## working:
-#
+#{
 # active scope - expiration
 # Need.where("zip = ?", user.zip)
-  ## could also use this to expand:  ZipCodes.db.select{ |k,v| v[:city] == city}.to_a.map{ |z| z[0]}
-  ## this would be better if we could just do ZipCodes.identify(zip)[:city] for both
+# Need.where(type_id: User.last.typings.pluck(:type_id))
+# Need.where(org_id: u.follows.where(followable_type: "Org").pluck(:followable_id))
+# Need.joins(:cats).where("cats.id" => u.follows.where(followable_type: "Cat").pluck(:followable_id))
+#}
+
 
 # trying
-# Need.where(type_id: user.types.ids)
+# Need.where(type_id: User.last.types.ids)
+# Need.where(type_id: User.last.typings.pluck(:type_id))
 # Need.where("")
 
 
 # User.last.typings.pluck(:type_id) #works to get type_id
+
+#cats
+# Need.includes(:cats).where("cats.id" => u.follows.where(followable_type: "Cat").pluck(:followable_id))
+
+
+#u.follows.where(followable_type: "Cat").pluck(:followable_id)
+
+# Need.where(org_id: u.follows.where(followable_type: "Org").pluck(:followable_id))
+# Need.includes(:cats).where("cats.id" => u.follows.where(followable_type: "Cat").pluck(:followable_id))
+#Need.joins(:cats).where("cats.id" => u.follows.where(followable_type: "Cat").pluck(:followable_id))

@@ -34,7 +34,6 @@ class NeedsController < ApplicationController
   def need_params
     params.require(:need).permit(:title, :story, :amount, :expiration, :link, :img_url, :type_id)
     #TODO: create a valid expiration
-    #TODO: add unit for  quantity?
     #TODO: add location?
   end
 
