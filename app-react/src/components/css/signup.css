@@ -6,15 +6,47 @@ img {
     width: 100%; 
 }
 
+/*user signup*/
+
 #give-img {
     margin-top: 35px;
-    margin-bottom: 35px;
+    margin-bottom: 10px;
 }
 
-.signup-form {
+.signup-card {
+    padding: 20px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+    background-color: white;
+    max-width: 900px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.signup-back {
+    background: #F7FDEC;
+}
+
+/*.signup-form {
     margin-top: 10px;
+}*/
+
+/*org signup*/
+
+.org-give-header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://unsplash.it/2048/1365?image=1033);
+    background-size: cover;
+    background-position: center;
+    /*margin-top: 25px;*/
+    padding: 100px 100px 100px 100px;
+    color: white;
 }
 
-.org-signup-form {
-    margin-top: 35px;
+.org-give-card {
+    padding: 40px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+    background-color: white;
+    max-width: 900px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /*margin: 0 auto;*/
 }

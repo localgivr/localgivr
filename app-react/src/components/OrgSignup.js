@@ -59,9 +59,12 @@ class OrgSignup extends React.Component {
 
     render() {
         return <div> 
-        <div className="org-signup-form">
-
-            <div className="row">
+        <div className="org-give-header">
+            <h1>Let your community lend a hand.</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus eos dignissimos numquam provident nostrum maxime voluptatem, natus quo repudiandae odio distinctio, praesentium cumque quis quasi vel pariatur accusamus corporis!</p>
+        </div>
+        <div className="container org-give-card">
+            <div className="row org-signup-form">
                 <div className="form-horizontal">
                 <div className="form-group">
                     <label for="name" className="col-sm-2 control-label">Organization Name</label>
@@ -108,7 +111,7 @@ class OrgSignup extends React.Component {
                 <div className="form-group">
                     <label for="zip" className="col-sm-2 control-label">Zip Code</label>
                     <div className="col-sm-10">
-                    <input type="number" className="form-control" id="zip" placeholder="46225" onChange={(e) => this.setState({zip: e.target.value})} />
+                    <input type="number" className="form-control" id="zip" placeholder="46225" onChange={(e) => this.setState({zip: e.target.value})} />s
                     </div>
                 </div>
                 <div className="form-group">

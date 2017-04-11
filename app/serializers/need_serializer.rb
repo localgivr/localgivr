@@ -7,13 +7,9 @@ class NeedSerializer < ActiveModel::Serializer
     {
       id: object.org.id,
       name: object.org.name,
-      address: {
-        street: object.org.street,
-        city: object.org.city,
-        state: object.org.state,
-        zip: object.org.zip
-      },
-      ein: object.org.ein,
+      city: object.org.city,
+      state: object.org.state,
+      zip: object.org.zip,
       verified: object.org.verified
     }
   end

@@ -16,7 +16,7 @@ class UserOnboard extends React.Component {
     }
 
     render() {
-        return <div>
+        return <div className="container">
     <div className="row">
     <div className="col-sm-6">
         <h3>What causes are meaningful to you? </h3>
