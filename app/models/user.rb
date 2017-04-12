@@ -9,12 +9,17 @@ class User < ApplicationRecord
 
   has_secure_password
   has_secure_token
+  acts_as_mappable auto_geocode: {field: :zip, error_message: 'Could not geocode zip'}
 
   validates :email, :phone, uniqueness: true
   validates  :first_name, :last_name, :email, :zip, presence: true
 
   def feed
-
+    Need.joins(:cats)
+        .where("cats.id" => self.follows.where(followable_type: "Cat").pluck(:followable_id))
+        .where(org_id: self.follows.where(followable_type: "Org").pluck(:followable_id))
+        .where(type_id: self.typings.pluck(:type_id)).active
+        #.where location check
   end
 end
 

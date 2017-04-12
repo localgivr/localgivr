@@ -6,9 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# def find_zips(city)
-#   ZipCodes.db.select{ |k,v| v[:city] == city}.to_a.map{ |z| z[0]}
-# end
 
 
 
