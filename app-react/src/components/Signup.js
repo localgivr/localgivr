@@ -50,7 +50,7 @@ class Signup extends React.Component {
             return console.log(response);
 
             if (response.user.token) {
-                sessionStorage.setItem('token', JSON.stringify(response.user.token));
+                sessionStorage.setItem('token', response.user.token);
                 browserHistory.push('/causes') 
             }
             else {
