@@ -1,4 +1,5 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 import './css/request.css'
 
 class Request extends React.Component {
@@ -10,39 +11,44 @@ class Request extends React.Component {
         this.state = {
             title: '',
             story: '',
-            type: '',
+            type_id: '',
             amount: '',
             expiration: '',
             link: '',
-            img_url: ''
+            img_url: '',
+           // token: ''
         }
     }
 
-    postRequest(e) {
-        fetch('/api/needs', {
+    postRequest() {
+        var token = sessionStorage.getItem('token')
+        //fetch('/api/needs', {
+        fetch('/api/needs?token=' + token, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
 
             body: JSON.stringify({
-                 need: {
+                token: token,
+                need: {
                     title: this.state.title,
                     story: this.state.story,
-                    type: this.state.type,
+                    type_id: this.state.type_id,
                     amount: this.state.amount,
                     expiration: this.state.expiration,
                     link: this.state.link,
                     img_url: this.state.img_url
                 }
-
+                
             })
         })
+
         .then(response => response.json()) 
+        .then(function(response) {
+            browserHistory.push('/give')
+        })
     }
-
-
-
 
     render() {
         return <div>
@@ -71,13 +77,13 @@ class Request extends React.Component {
                         <div className="col-sm-10">
                         <div className="radio">
                             <label>
-                                <input type="radio" name="type" id="money" value="1" onClick={(e) => this.setState({type: e.target.value})} />
+                                <input type="radio" name="type" id="money" value="1" onClick={(e) => this.setState({type_id: e.target.value})} />
                                 Monetary Funding
                             </label>
                             </div>
                             <div className="radio">
                             <label>
-                                <input type="radio" name="type" id="supplies" value="2" onClick={(e) => this.setState({type: e.target.value})} />
+                                <input type="radio" name="type" id="supplies" value="2" onClick={(e) => this.setState({type_id: e.target.value})} />
                                 Supplies
                             </label>
                             </div>
