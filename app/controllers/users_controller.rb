@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render json: @user
+    @needs = @user.feed(10)
+    render json: @needs
   end
 
   def create

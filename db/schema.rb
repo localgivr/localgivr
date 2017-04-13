@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410205055) do
+ActiveRecord::Schema.define(version: 20170412141324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,9 +50,11 @@ ActiveRecord::Schema.define(version: 20170410205055) do
     t.string   "img_url"
     t.integer  "org_id"
     t.integer  "type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "zip"
+    t.decimal  "lat",        precision: 10, scale: 6
+    t.decimal  "lng",        precision: 10, scale: 6
     t.index ["org_id"], name: "index_needs_on_org_id", using: :btree
     t.index ["type_id"], name: "index_needs_on_type_id", using: :btree
   end
@@ -101,8 +103,10 @@ ActiveRecord::Schema.define(version: 20170410205055) do
     t.string   "img_url"
     t.string   "token"
     t.integer  "follows_count"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.decimal  "lat",             precision: 10, scale: 6
+    t.decimal  "lng",             precision: 10, scale: 6
   end
 
   add_foreign_key "catings", "cats"

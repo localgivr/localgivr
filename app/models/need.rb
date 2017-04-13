@@ -1,6 +1,8 @@
 class Need < ApplicationRecord
+  acts_as_mappable auto_geocode: {field: :zip, error_message: 'Could not geocode zip'}
 
   scope :active, -> { where('expiration > ? AND completed = ?', Time.local(2017,4,28), false)}
+
 
   belongs_to :org, :counter_cache => true
   belongs_to :type
