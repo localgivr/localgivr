@@ -19,6 +19,6 @@ class User < ApplicationRecord
     result = result.where("cats.id" => self.follows.where(followable_type: "Cat").pluck(:followable_id)) if self.follows.exists?(followable_type: "Cat")
     result = result.where(org_id: self.follows.where(followable_type: "Org").pluck(:followable_id)) if self.follows.exists?(followable_type: "Org")
     result = result.where(type_id: self.typings.pluck(:type_id))
-    result = result.within(20, origin: self).active.limit(num)
+    result = result.within(20, origin: self).active.limit(num).by_distance(origin: self).group('needs.id')
   end
 end
