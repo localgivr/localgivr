@@ -12,10 +12,12 @@ class NeedsController < ApplicationController
   end
 
   def create
-    @need = Need.new(need_params)
+    @need = current_org.needs.new(need_params)
     if @need.save
+      # current_org.needs << @need
       #assuming we're getting an array of cat name/hashes within need
-      params[:need][:cats].each { |c| @need.cats << Cat.find(c[:id]) }
+      params[:need][:cats].each { |c| @need.cats << Cat.find(c[:id]) } if params[:need][:cats]
+      render json: @need
     else
       request_error(@need.errors.full_messages)
     end
