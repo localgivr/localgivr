@@ -15,7 +15,7 @@ class OrgSignup extends React.Component {
             street: '',
             city: '',
             state: '',
-            zip: '',
+            zip: ''
         }
     }
 
@@ -28,14 +28,16 @@ class OrgSignup extends React.Component {
             },
 
             body: JSON.stringify({
-                name: this.state.name,
-                email: this.state.email,
-                password: this.state.password,
-                phone: this.state.phone,
-                street: this.state.street,
-                city: this.state.city,
-                state: this.state.state,
-                zip: this.state.zip,
+                org: {
+                    name: this.state.name,
+                    email: this.state.email,
+                    password: this.state.password,
+                    phone: this.state.phone,
+                    street: this.state.street,
+                    city: this.state.city,
+                    state: this.state.state,
+                    zip: this.state.zip
+                }
             })
         })
 
@@ -43,10 +45,9 @@ class OrgSignup extends React.Component {
             return response.json();
         }) 
         .then(function(response) {
-            return console.log(response);
 
-            if (response.user.token) {
-                sessionStorage.setItem('token', JSON.stringify(response.user.token));
+            if (response.org.token) {
+                sessionStorage.setItem('token', JSON.stringify(response.org.token));
                 browserHistory.push('/organization-profile')
             }
             else {

@@ -14,7 +14,7 @@ class GiveCard extends React.Component {
 
         this.state = {
             showModal: false,
-            //needs: []
+           // needs: []
         }
     }
 
