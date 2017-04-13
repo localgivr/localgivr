@@ -41,9 +41,6 @@ class Request extends React.Component {
         .then(response => response.json()) 
     }
 
-
-
-
     render() {
         return <div>
         <div className="request-header">
