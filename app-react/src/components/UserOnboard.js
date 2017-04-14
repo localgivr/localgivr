@@ -1,6 +1,6 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
-import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 // set setState on onClick for checkboxes 
 
@@ -18,7 +18,6 @@ class UserOnboard extends React.Component {
      getOrgs() {
         fetch('/api/orgs')
         .then(res => res.json())
-
         .then(res => this.setState({orgs: res.orgs}))
     }
 
@@ -31,71 +30,68 @@ class UserOnboard extends React.Component {
     }
 
     render() {
-        
         let orgs = this.state.orgs.map((org, i) => <li>
-            <div className="list-unstyled checkbox">
+            <div className="checkbox">
                 <label>
                     <input type="checkbox"  value={org.name} /> {org.name}
                 </label></div></li>)
 
-
-        return <div className="container">
+    return <div className="container">
     <div className="row">
-    <div className="col-sm-6">
-        <h3>What causes are meaningful to you? </h3>
+        <div className="col-sm-6">
+            <h3>What causes are meaningful to you? </h3> <br/>
+            <div className="checkbox">
+                <label>
+                    <input type="checkbox" value="animal" />
+                    Animal Rights
+                </label>
+            </div>
+            <div className="checkbox">
+                <label>
+                    <input type="checkbox" value="education" />
+                    Education
+                </label>
+            </div>
+            <div className="checkbox">
+                <label>
+                    <input type="checkbox" value="community" />
+                    Community
+                </label>
+            </div>  
+            <div className="checkbox">
+                <label>
+                    <input type="checkbox" value="health" />
+                    Health 
+                </label>
+            </div>   
+            <div className="checkbox">
+                <label>
+                    <input type="checkbox" value="environment" />
+                    Environment
+                </label>
+            </div> 
+            <div className="checkbox">
+                <label>
+                    <input type="checkbox" value="social" />
+                    Social Justice
+                </label>
+            </div> 
+        </div>
+        <div className="col-sm-6">
+            <h3>What organizations are meaningful to you?</h3> <br/>
+            <ul className="list-unstyled">
+                {orgs}
+            </ul>
+        </div>     
 
-        <div className="checkbox">
-            <label>
-                <input type="checkbox" value="animal" />
-                Animal Rights
-            </label>
-        </div>
-        <div className="checkbox">
-            <label>
-                <input type="checkbox" value="education" />
-                Education
-            </label>
-        </div>
-        <div className="checkbox">
-            <label>
-                <input type="checkbox" value="community" />
-                Community
-            </label>
-        </div>  
-        <div className="checkbox">
-            <label>
-                <input type="checkbox" value="health" />
-                Health 
-            </label>
-        </div>   
-        <div className="checkbox">
-            <label>
-                <input type="checkbox" value="environment" />
-                Environment
-            </label>
         </div> 
-        <div className="checkbox">
-            <label>
-                <input type="checkbox" value="social" />
-                Social Justice
-            </label>
-        </div> 
-    </div>
-    <div className="col-sm-6">
-        <h3>What organizations are meaningful to you?</h3> <br/><br/>
-        <ul className="list-unstyled">
-            {orgs}
-        </ul>
-    </div>     
-
-    </div> 
-    <br/><br/><br/>
-    <div className="row text-center give-button">
-        <Button bsStyle="success" bsSize="large" onClick={this.give}>Start Giving</Button>        
-    </div>
-    <br/><br/>               
-            
+        <br/><br/><br/>
+        <div className="row text-center give-button">
+            <Button bsStyle="success" bsSize="large" onClick={this.give}>Start Giving</Button>        
         </div>
+        <br/><br/>               
+                
+    </div>
     }
 }
 

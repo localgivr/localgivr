@@ -1,17 +1,42 @@
 import React from 'react'
-import './css/profile.css'
+//import { browserHistory } from 'react-router'
+import GiveCard from './GiveCard'
+import './css/give.css'
 
 class UserProfile extends React.Component {
+    constructor(props) {
+        super(props)
+        this.getFeed = this.getFeed.bind(this)
+
+        this.state = {
+            needs: []
+        }
+    }
+
+    getFeed() {
+        fetch('/api/users/1')
+        .then(res => res.json())
+        // .then(res => console.log(res))
+        .then(res => this.setState({needs: res.needs}))
+    }
+
+    componentDidMount() {
+        this.getFeed()
+    }
+
     render() {
+        let UserCards = this.state.needs.map((need, i) => {
+            return <GiveCard {...need}  key={i} /> 
+        })
         return <div className="container">
             <div className="row">
                 <div className="col-sm-5">
                     <ul className="list-unstyled text-center" id="user-profile-box">
                         <li><img className="center-block" id="profile-picture" src="https://unsplash.it/g/200/200?blur" alt="Profile Picture" /></li> <br/>
-                        <li className="text-uppercase text-center" id="username"><strong>John Doe</strong></li><br/>
+                        <li className="text-uppercase text-center" id="username"><strong>{this.props.first_name}</strong></li><br/>
                         <li className="text-uppercase text-center" id="location">Indianapolis, IN</li><br/>
-                        <li><button type="button" className="btn btn-success btn-sm edit-profile">Edit Profile</button>
-                        <button type="button" className="btn btn-danger btn-sm delete-profile">Delete Profile</button></li>
+                        {/*<li>
+                        <button type="button" className="btn btn-danger btn-sm delete-profile">Delete Profile</button></li>*/}
                     </ul>
                     <div className="row">
                         <div className="col-sm-12">
@@ -24,29 +49,11 @@ class UserProfile extends React.Component {
                 </div>
                 <div className="col-sm-6">
                     <div className="row">
-                        <div className="col-sm-6 ">
-                            <div className="thumbnail">
-                                <img src="https://unsplash.it/200/200/?blur" alt="Cool image!" />
-                                <div className="caption">
-                                    <h3>Title of Request</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla magni est voluptate.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-sm-6 ">
-                            <div className="thumbnail">
-                                <img src="https://unsplash.it/200/200/?blur" alt="Cool image!" />
-                                <div className="caption">
-                                    <h3>Title of Request</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla magni est voluptate.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                       
+                        <div> {UserCards}</div>
                 </div>
             </div>
         </div>
+    </div>
     }
 }
 

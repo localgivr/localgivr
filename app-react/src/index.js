@@ -12,6 +12,7 @@ import Request from './components/Request'
 import UserProfile from './components/UserProfile'
 import OrgProfile from './components/OrgProfile'
 import UserOnboard from'./components/UserOnboard'
+import UserFeed from './components/UserFeed'
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -24,6 +25,7 @@ ReactDOM.render(
           <Route path='profile' component={UserProfile} />
           <Route path='organization-profile' component={OrgProfile} />
           <Route path='causes' component={UserOnboard} />
+          <Route path='feed' component={UserFeed} />
         </Route>
     </Router>,
   document.getElementById('root')
