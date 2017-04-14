@@ -29,7 +29,7 @@ class Give extends React.Component {
     }
 
     render() {
-        var GiveCards = this.state.needs.map((need, i) => {
+        let GiveCards = this.state.needs.map((need, i) => {
             return <GiveCard {...need}  key={i} /> 
         })
 
