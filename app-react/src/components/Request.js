@@ -22,7 +22,6 @@ class Request extends React.Component {
 
     postRequest() {
         var token = sessionStorage.getItem('token')
-        //fetch('/api/needs', {
         fetch('/api/needs?token=' + token, {
             method: 'POST',
             headers: {
