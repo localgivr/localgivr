@@ -1,5 +1,7 @@
 class OrgsController < ApplicationController
 
+  before_action :require_user, only: [:follow]
+
   def index
     @orgs = Org.all
     render json: @orgs
@@ -27,6 +29,17 @@ class OrgsController < ApplicationController
       render json: @org, serializer: OrgExtendedSerializer
     else
       request_error("Invalid email or password", 401)
+    end
+    
+  end
+
+  def follow
+    @org = Org.find([params[:id]])
+    result = follow_toggle(@org)
+    if result
+      render json: {message: "success!"}
+    else
+      request_error(result.errors.full_messages)
     end
   end
 

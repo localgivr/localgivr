@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
 
+  before_action :require_user, only: [:show, :followed_orgs, :followed_cats]
+
   def index
     @users = User.all
     render json: @users
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = params[:id] == "feed" ? current_user : User.find(params[:id])
     @needs = @user.feed(10)
     render json: @needs
   end
@@ -30,6 +32,16 @@ class UsersController < ApplicationController
     else
       request_error("Invalid email or password", 401)
     end
+  end
+
+  def followed_cats
+    @cats = current_user.followed_cats
+    render json: @cats
+  end
+
+  def followed_orgs
+    @orgs = current_user.followed_orgs
+    render json: @orgs
   end
 
   private
