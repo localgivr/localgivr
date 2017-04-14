@@ -22,6 +22,11 @@ class ApplicationController < ActionController::Base
 
   def require_org
       request_error("You need to be logged in as an organization.", 401) unless current_org
-  end 
+  end
+
+  def follow_toggle(followee)
+    @follow = current_user.follows.find_by(followable: followee)
+    @follow ? @follow.destroy : current_user.follows.create(followable: followee)
+  end
 
 end

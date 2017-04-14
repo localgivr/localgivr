@@ -106,8 +106,8 @@ def new_follows(users, orgs)
   users.each.with_index do |u,i|
     5.times do
       print '.'
-      u.follows.create!(followable: @cats.sample)
-      u.follows.create!(followable: orgs.sample) if rand(1..10) > 7
+      u.follows.find_or_create_by!(followable: @cats.sample)
+      u.follows.find_or_create_by!(followable: orgs.sample) if rand(1..10) > 7
     end unless i%10 == 0
   end
 end
