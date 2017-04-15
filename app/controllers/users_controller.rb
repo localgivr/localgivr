@@ -8,9 +8,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = params[:id] == "feed" ? current_user : User.find(params[:id])
-    @needs = @user.feed(10)
-    render json: @needs
+    case params[:id]
+    when "feed"
+      @needs = current_user.feed(10)
+      render json: @needs
+    when "profile"
+      @user = current_user
+      render json: @user
+    else
+      request_error("not a valid userpath")
+    end
   end
 
   def create
@@ -34,15 +41,15 @@ class UsersController < ApplicationController
     end
   end
 
-  def followed_cats
-    @cats = current_user.followed_cats
-    render json: @cats
-  end
-
-  def followed_orgs
-    @orgs = current_user.followed_orgs
-    render json: @orgs
-  end
+  # def followed_cats
+  #   @cats = current_user.followed_cats
+  #   render json: @cats
+  # end
+  #
+  # def followed_orgs
+  #   @orgs = current_user.followed_orgs
+  #   render json: @orgs
+  # end
 
   private
   def user_params

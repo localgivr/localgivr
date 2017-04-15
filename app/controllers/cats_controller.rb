@@ -2,6 +2,11 @@ class CatsController < ApplicationController
 
   before_action :require_user, only: [:follow]
 
+  def index
+    @cats = Cat.all
+    render json: @cats
+  end
+
   def follow
     @cat = Cat.find([params[:id]])
     result = follow_toggle(@cat)
@@ -11,5 +16,5 @@ class CatsController < ApplicationController
       request_error(result.errors.full_messages)
     end
   end
-  
+
 end

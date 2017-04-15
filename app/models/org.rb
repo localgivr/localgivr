@@ -8,4 +8,6 @@ class Org < ApplicationRecord
 
   validates :name, :email, :phone, uniqueness: true
   validates  :name, :email, :zip, presence: true
+
+  
 end

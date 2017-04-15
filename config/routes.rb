@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   scope :api do
     resources :needs
-    resources :types
-    # resources :cats
+    # resources :types
+    resources :cats, only: [:index]
     resources :orgs
     resources :users
 
