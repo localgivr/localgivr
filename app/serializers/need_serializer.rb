@@ -1,5 +1,5 @@
 class NeedSerializer < ActiveModel::Serializer
-  attributes :id, :title, :story, :amount, :expiration, :link, :completed, :img_url
+  attributes :id, :title, :story, :amount, :expiration, :link, :completed, :img_url, :city, :state
   has_one :org
   has_one :type
 

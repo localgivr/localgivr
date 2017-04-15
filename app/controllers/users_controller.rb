@@ -1,14 +1,23 @@
 class UsersController < ApplicationController
 
+  before_action :require_user, only: [:show, :followed_orgs, :followed_cats]
+
   def index
     @users = User.all
     render json: @users
   end
 
   def show
-    @user = User.find(params[:id])
-    @needs = @user.feed(10)
-    render json: @needs
+    case params[:id]
+    when "feed"
+      @needs = current_user.feed(20)
+      render json: @needs#, meta: pagination_dict(posts)
+    when "profile"
+      @user = current_user
+      render json: @user
+    else
+      request_error("not a valid userpath")
+    end
   end
 
   def create
@@ -31,6 +40,16 @@ class UsersController < ApplicationController
       request_error("Invalid email or password", 401)
     end
   end
+
+  # def followed_cats
+  #   @cats = current_user.followed_cats
+  #   render json: @cats
+  # end
+  #
+  # def followed_orgs
+  #   @orgs = current_user.followed_orgs
+  #   render json: @orgs
+  # end
 
   private
   def user_params
