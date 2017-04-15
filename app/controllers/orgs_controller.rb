@@ -30,16 +30,17 @@ class OrgsController < ApplicationController
     else
       request_error("Invalid email or password", 401)
     end
-    
+
   end
 
   def follow
-    @org = Org.find([params[:id]])
+    @org = Org.find(params[:id])
     result = follow_toggle(@org)
     if result
-      render json: {message: "success!"}
+      message = current_user.follows.exists?(followable: @org) ? "followed" : "unfollowed"
+      render json: {message: message}
     else
-      request_error(result.errors.full_messages)
+      request_error("not a organization")
     end
   end
 
