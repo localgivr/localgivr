@@ -25,7 +25,7 @@ class GiveCard extends React.Component {
     getNeeds() {
         fetch('/api/needs')
         .then(res => res.json())
-        .then(res => this.setState({needs: res}))
+        //.then(res => this.setState({needs: res}))
         .then(blah => console.log(this.props))
     }
 
