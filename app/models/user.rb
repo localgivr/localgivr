@@ -9,7 +9,8 @@ class User < ApplicationRecord
 
   has_secure_password
   has_secure_token
-  acts_as_mappable auto_geocode: {field: :zip, error_message: 'Could not geocode zip'}
+  acts_as_mappable #auto_geocode: {field: :zip, error_message: 'Could not geocode zip'}
+  before_validation :geocode_zip, :on => :create
 
   validates :email, :phone, uniqueness: true
   validates  :first_name, :last_name, :email, :zip, presence: true
@@ -21,4 +22,13 @@ class User < ApplicationRecord
     result = result.where(type_id: self.typings.pluck(:type_id))
     result = result.within(20, origin: self).active.limit(num).by_distance(origin: self).group('needs.id')
   end
+
+  private
+
+  def geocode_zip
+    geo=Geokit::Geocoders::MultiGeocoder.geocode (zip)
+    errors.add(:zip, "could not be geocoded") if !geo.success
+    self.lat, self.lng, self.city, self.state = geo.lat,geo.lng,geo.city,geo.state if geo.success
+  end
+  
 end
