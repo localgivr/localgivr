@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   def show
     case params[:id]
     when "feed"
-      @needs = current_user.feed(10)
-      render json: @needs
+      @needs = current_user.feed(20)
+      render json: @needs#, meta: pagination_dict(posts)
     when "profile"
       @user = current_user
       render json: @user

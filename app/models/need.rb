@@ -1,4 +1,6 @@
 class Need < ApplicationRecord
+
+  paginates_per 5
   acts_as_mappable auto_geocode: {field: :zip, error_message: 'Could not geocode zip'}
 
   scope :active, -> { where('expiration > ? AND completed = ?', Time.local(2017,4,28), false)}

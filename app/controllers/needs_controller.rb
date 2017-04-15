@@ -3,7 +3,7 @@ class NeedsController < ApplicationController
 
   def index
     @needs = Need.all
-    render json: @needs
+    render json: @needs#, meta: pagination_dict(@needs)
   end
 
   def show
