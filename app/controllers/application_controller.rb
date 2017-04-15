@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery unless: -> { request.format.json? }
 
+  helper_method :current_user
+
   private
 
   def request_error(msg, code = 400)
@@ -28,6 +30,8 @@ class ApplicationController < ActionController::Base
     @follow = current_user.follows.find_by(followable: followee)
     @follow ? @follow.destroy : current_user.follows.create(followable: followee)
   end
+
+
 
   def pagination_dict(collection)
   {
