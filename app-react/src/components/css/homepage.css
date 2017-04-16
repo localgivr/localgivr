@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+
+.jumbotron {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://unsplash.it/5184/3456?image=448);
+    background-size: cover;
+    background-position: center;
+    /*padding: 100px;*/
+    color: white;
+}
+
+.signup-button {
+    background: #406056;
+    color: white;
+    border: none;
+}
+
+.signup-button:hover {
+    background: #627C74;
+    color: white;
+}

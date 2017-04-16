@@ -31,7 +31,7 @@ img {
       -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
-      width: 100%;
+     width: 100%;
      height: auto;
 }
 
@@ -43,5 +43,10 @@ img {
 .donate-button,
 .modal-header {
     background: #406056;
+    color: white;
+}
+
+.close-button {
+    background: #653B40;
     color: white;
 }
