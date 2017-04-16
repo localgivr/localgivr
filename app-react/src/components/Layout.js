@@ -65,6 +65,10 @@ class Layout extends React.Component {
     browserHistory.push('/give')
   }
 
+  viewProfile() {
+    browserHistory.push('/profile')
+  }
+
   render() {
     const signedIn = this.signedIn()
 
@@ -80,6 +84,9 @@ class Layout extends React.Component {
                 <ul className="list-inline pull-right">
                   <li>
                     <button type="button" className="btn btn-default viewAll" onClick={this.viewAll}>All Needs</button>
+                  </li>
+                  <li>
+                    <button type="button" className="btn btn-default viewProfile" onClick={this.viewProfile}>Profile</button>
                   </li>
                   <li>
                     <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>
