@@ -45,6 +45,10 @@ class Layout extends React.Component {
           sessionStorage.setItem('token', response.user.token);
           location.href = './give';
                 }
+        else if (response.org.token) {
+          sessionStorage.setItem('token', response.org.token);
+          location.href = './request'
+        }
         else {
             alert('There was an error. Please view your console.');
             console.log(response);
