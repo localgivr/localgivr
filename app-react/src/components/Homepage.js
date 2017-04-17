@@ -9,31 +9,6 @@ class Homepage extends React.Component {
         super(props)
 
         this.signup = this.signup.bind(this)
-
-        this.getStuff = this.getStuff.bind(this)
-        this.addAttr = this.addAttr.bind(this)
-        this.state = {
-          user: {},
-          test: "hello"
-        }
-    }
-
-    getStuff() {
-      var token = "FKvqzBN4mDawVZauadSHynVm"
-      fetch('/api/users/profile?token=' + token)
-      .then(res => res.json())
-      .then(res => {this.setState({user: res.user})})
-
-    }
-
-    addAttr(key, value) {
-      this.setState({
-        [key]: value
-      })
-    }
-
-    componentDidMount() {
-        this.getStuff()
     }
 
     signup() {
@@ -42,10 +17,6 @@ class Homepage extends React.Component {
 
 
     render() {
-      console.log(this.state)
-      // this.addAttr("test", "pass?") //this is bad - lots of looping errors
-      const {user} = this.state
-
         return <div>
             <Jumbotron className="jumbotron">
                 <h1>Hello, world!</h1>
@@ -55,7 +26,6 @@ class Homepage extends React.Component {
 
             <div className="home-header text-center">
                     <h1>Enticing Text:</h1> <br/>
-                    <h2>{user.first_name} {user.last_name}</h2>
 
             </div>
         </div>
