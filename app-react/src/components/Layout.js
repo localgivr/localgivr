@@ -59,7 +59,7 @@ class Layout extends React.Component {
   signout() {
     sessionStorage.removeItem('token');
     browserHistory.push('/')
-  }
+  } 
 
   viewAll() {
     browserHistory.push('/give')
