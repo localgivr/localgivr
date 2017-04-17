@@ -10,6 +10,7 @@ class Layout extends React.Component {
     this.signin = this.signin.bind(this)
     this.signedIn = this.signedIn.bind(this)
     this.signout = this.signout.bind(this)
+    this.viewAll = this.viewAll.bind(this)
 
       this.state = {
         email: '',
@@ -56,9 +57,16 @@ class Layout extends React.Component {
    }
 
   signout() {
-
     sessionStorage.removeItem('token');
     browserHistory.push('/')
+  }
+
+  viewAll() {
+    browserHistory.push('/give')
+  }
+
+  viewProfile() {
+    browserHistory.push('/profile')
   }
 
   render() {
@@ -74,6 +82,12 @@ class Layout extends React.Component {
         <div className="col-sm-6">
               {signedIn ? (
                 <ul className="list-inline pull-right">
+                  <li>
+                    <button type="button" className="btn btn-default viewAll" onClick={this.viewAll}>All Needs</button>
+                  </li>
+                  <li>
+                    <button type="button" className="btn btn-default viewProfile" onClick={this.viewProfile}>Profile</button>
+                  </li>
                   <li>
                     <button type="button" className="btn btn-default logOut" onClick={this.signout}>Log Out</button>
                   </li>

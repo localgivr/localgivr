@@ -14,18 +14,19 @@ class GiveCard extends React.Component {
 
         this.state = {
             showModal: false,
-           // needs: []
+          //  needs: []
         }
     }
 
-    // componentDidMount() {
-    //     this.getNeeds()
-    // }
+    componentDidMount() {
+        this.getNeeds()
+    }
 
     getNeeds() {
         fetch('/api/needs')
         .then(res => res.json())
-        .then(res => this.setState({needs: res}))
+        //.then(res => this.setState({needs: res}))
+        .then(blah => console.log(this.props))
     }
 
     donate() {
@@ -41,8 +42,7 @@ class GiveCard extends React.Component {
     }
 
     render() {
-        return <div >
-        <div className="col-sm-6  col-md-4">
+        return <div className="col-sm-6"> 
             <div className="thumbnail">
                 <div className="thumbnail-house text-center">
                     <img className="thumbnail-img center-block" src={this.props.img_url} alt={this.props.title} />
@@ -50,7 +50,7 @@ class GiveCard extends React.Component {
                 <div className="caption">
                     <h3 className="text-uppercase">{this.props.title}</h3>
                     <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> {this.props.org.city}, {this.props.org.state}</div> <br/><br/>
-                    <p>{this.props.story.slice(0, 70)}...</p>
+                    <p>{this.props.story.slice(0, 60)}...</p>
                     <p><a href="#" className="btn btn-default" role="button" onClick={this.open}>Learn More</a></p>
 
                     <Modal show={this.state.showModal} onHide={this.close}>
@@ -63,15 +63,14 @@ class GiveCard extends React.Component {
                             <p><strong>Amount Needed: </strong> {this.props.amount}</p>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button bsStyle="success" className="donate-button" onClick={this.donate}>Donate</Button>
-                            <Button onClick={this.close}>Close</Button>
+                            <Button className="donate-button" onClick={this.donate}>Donate</Button>
+                            <Button className="close-button" onClick={this.close}>Close</Button>
                         </Modal.Footer>
                     </Modal>
 
                 </div>
             </div>
         </div>
-    </div>
     }
 }
 
