@@ -1,4 +1,5 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 
 class ProfileView extends React.Component {
 constructor(props) {
@@ -22,14 +23,18 @@ constructor(props) {
         this.getProfile()
     }
 
+    viewOnboarding() {
+        browserHistory.push('/causes')
+    }
+
     render() {
         return  <div>
                     <ul className="list-unstyled text-center" id="user-profile-box">
                         <li><img className="center-block" id="profile-picture" src={this.state.user.img_url} alt="Profile Picture" /></li> <br/>
                         <li className="text-uppercase text-center" id="username"><strong>{this.state.user.first_name}</strong></li><br/>
                         <li className="text-uppercase text-center" id="location">{this.state.user.zip}</li><br/>
-                        {/*<li>
-                        <button type="button" className="btn btn-danger btn-sm delete-profile">Delete Profile</button></li>*/}
+                        <li>
+                        <button type="button" className="btn btn-danger btn-sm edit-causes" onClick={this.viewOnboarding}>Update Preferences</button></li>
                     </ul>
                 </div>
     }
