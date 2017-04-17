@@ -34,8 +34,14 @@ class UsersController < ApplicationController
     # binding.pry
     @user = User.find_by(email: params[:user][:email])&.
               authenticate(params[:user][:password])
-    if @user
+    @org = Org.find_by(email: params[:email])&.
+              authenticate(params[:password])
+
+    case
+    when @user
       render json: @user, serializer: UserExtendedSerializer
+    when @org
+      render json: @org, serializer: OrgExtendedSerializer
     else
       request_error("Invalid email or password", 401)
     end
