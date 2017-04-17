@@ -30,7 +30,35 @@ class GiveCard extends React.Component {
     }
 
     donate() {
-        window.open(this.props.link, '_blank')
+        // send post to backend that need has been filled.
+        console.log("LOOK AN ID: "+this.props.id)
+
+        // trigger re-render without the clicked need
+        // this.props.resetFeed() //? make sure necessary
+        this.fillNeed()
+        console.log(this.state)
+        this.setState({ showModal: false });
+        // window.open(this.props.link, '_blank')
+    }
+
+    fillNeed() {
+      var token = sessionStorage.getItem('token')
+      console.log(token)
+      fetch('/api/needs/'+this.props.id, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          token: token
+        })
+      })
+      .then( (res) => res.json )
+      .then( (res) => {this.setState({result: res})})
+      // .catch(error => {
+      //   console.error(error)
+      // })
     }
 
     close() {
@@ -42,7 +70,7 @@ class GiveCard extends React.Component {
     }
 
     render() {
-        return <div className="col-sm-6"> 
+        return <div className="col-sm-6">
             <div className="thumbnail">
                 <div className="thumbnail-house text-center">
                     <img className="thumbnail-img center-block" src={this.props.img_url} alt={this.props.title} />

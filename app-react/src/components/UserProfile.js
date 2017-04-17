@@ -10,7 +10,7 @@ class UserProfile extends React.Component {
         this.getFeed = this.getFeed.bind(this)
 
         this.state = {
-            needs: [] 
+            needs: []
         }
     }
 
@@ -29,7 +29,7 @@ class UserProfile extends React.Component {
 
     render() {
         let UserCards = this.state.needs.map((need, i) => {
-            return <GiveCard {...need}  key={i} /> 
+            return <GiveCard {...need}  key={i} resetFeed={this.getFeed} /> 
         })
         return <div className="container">
             <div className="row">
@@ -45,4 +45,4 @@ class UserProfile extends React.Component {
     }
 }
 
-export default UserProfile 
+export default UserProfile

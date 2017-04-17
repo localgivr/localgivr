@@ -1,5 +1,6 @@
 class NeedsController < ApplicationController
-  before_action :require_org, only: [:create, :update, :destroy]
+  before_action :require_org, only: [:create, :destroy]
+  before_action :require_user, only: [:update]
 
   def index
     @needs = Need.all
@@ -24,7 +25,21 @@ class NeedsController < ApplicationController
   end
 
   def update
+    @need = Need.find(params[:id])
+    if @need
+      p @need
+      if @need.completed
 
+        request_error("need has already been completed!")
+      else
+        @need.update(completed: true)
+        current_user.increment('needs_met', 1)
+        current_user.save
+        render json: @need
+      end
+    else
+      request_error("need does not exist")
+    end
   end
 
   def destroy
