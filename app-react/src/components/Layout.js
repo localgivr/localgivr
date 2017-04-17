@@ -41,17 +41,16 @@ class Layout extends React.Component {
       .then(function(response) {
         console.log(response);
       
-        if (response.user.token) {
+        if (response.user && response.user.token) {
           sessionStorage.setItem('token', response.user.token);
           location.href = './give';
                 }
-        else if (response.org.token) {
+        else if (response.org && response.org.token) {
           sessionStorage.setItem('token', response.org.token);
           location.href = './request'
         }
         else {
             alert('There was an error. Please view your console.');
-            console.log(response);
         }
   })
 }
