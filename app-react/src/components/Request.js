@@ -16,6 +16,7 @@ class Request extends React.Component {
             expiration: '',
             link: '',
             img_url: '',
+            cat_id: []
            // token: ''
         }
     }
@@ -37,7 +38,8 @@ class Request extends React.Component {
                     amount: this.state.amount,
                     expiration: this.state.expiration,
                     link: this.state.link,
-                    img_url: this.state.img_url
+                    img_url: this.state.img_url,
+                    cat_id: this.state.cat_id
                 }
                 
             })
@@ -86,6 +88,47 @@ class Request extends React.Component {
                                 Supplies
                             </label>
                             </div>
+                        </div>
+                    </div>
+                     <div className="form-group">
+                        <label htmlFor="cats" className="col-sm-2 control-label">Category of Request</label>
+                        <div className="col-sm-10">
+                        <div className="checkbox">
+                            <label>
+                                <input type="checkbox" name="cat" id="animals" value="1" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                Animal Rights
+                            </label>
+                        </div>
+                        <div className="checkbox">
+                            <label>
+                                <input type="checkbox" name="cat" id="community" value="3" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                Community
+                            </label>
+                        </div>
+                         <div className="checkbox">
+                            <label>
+                                <input type="checkbox" name="cat" id="education" value="4" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                Education
+                            </label>
+                        </div>
+                        <div className="checkbox">
+                            <label>
+                                <input type="checkbox" name="cat" id="health" value="5" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                Health
+                            </label>
+                        </div>
+                         <div className="checkbox">
+                            <label>
+                                <input type="checkbox" name="cat" id="environment" value="6" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                Environment
+                            </label>
+                        </div>
+                        <div className="checkbox">
+                            <label>
+                                <input type="checkbox" name="cat" id="social" value="7" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                Social Justice
+                            </label>
+                        </div>
                         </div>
                     </div>
                     <div className="form-group">
