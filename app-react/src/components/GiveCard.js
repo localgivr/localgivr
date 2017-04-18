@@ -3,6 +3,8 @@ import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import './css/give.css'
 
+
+
 class GiveCard extends React.Component {
     constructor(props) {
         super(props)
@@ -54,11 +56,11 @@ class GiveCard extends React.Component {
           token: token
         })
       })
-      .then( (res) => res.json )
-      .then( (res) => {this.setState({result: res})})
-      // .catch(error => {
-      //   console.error(error)
-      // })
+      .then( res => res.json )
+      .then(function(response) {
+       console.log(response)
+     })
+
     }
 
     close() {
