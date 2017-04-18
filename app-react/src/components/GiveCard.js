@@ -14,7 +14,7 @@ class GiveCard extends React.Component {
 
         this.state = {
             showModal: false,
-          //  needs: []
+            needs: []
         }
     }
 
@@ -25,7 +25,7 @@ class GiveCard extends React.Component {
     getNeeds() {
         fetch('/api/needs')
         .then(res => res.json())
-        //.then(res => this.setState({needs: res}))
+        .then(res => this.setState({needs: res}))
         .then(blah => console.log(this.props))
     }
 
@@ -42,6 +42,10 @@ class GiveCard extends React.Component {
     }
 
     render() {
+       let categories = this.props.cats.map((cat, i) => {
+           return <p>{cat}</p>
+        })
+
         return <div className="col-sm-6"> 
             <div className="thumbnail">
                 <div className="thumbnail-house text-center">
@@ -60,6 +64,8 @@ class GiveCard extends React.Component {
                         <Modal.Body>
                             <h3>{this.props.org.name}</h3>
                             <p>{this.props.story}</p><br />
+                            <p><strong>Category: </strong>{categories}</p>
+                            
                             <p><strong>Amount Needed: </strong> {this.props.amount}</p>
                         </Modal.Body>
                         <Modal.Footer>
