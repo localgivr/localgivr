@@ -3,11 +3,14 @@ class TwilioController < ApplicationController
   def send
     @client = get_client
 
-    @client.account.messages.create({
-        :to => '<ToNumber>',
-        :from => '<FromNumber>',
-        :body => '<BodyText>'
-    })
+    User.all.each do |user|
+      @client.account.messages.create({
+          :to => user.phone,
+          :from => '13178544483',
+          :body => 'Weekly opportunity to serve: #{user.feed.first#link}'
+      })
+    end
+
   end
 
   private
