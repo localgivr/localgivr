@@ -43,7 +43,7 @@ class GiveCard extends React.Component {
 
     render() {
        let categories = this.props.cats.map((cat, i) => {
-           return <p>{cat}</p>
+           return <span>{cat}</span>
         })
 
         return <div className="col-sm-6"> 

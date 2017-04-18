@@ -13,25 +13,35 @@ class UserOnboard extends React.Component {
 
         this.state = {
             orgs: [],
-            cats: []
+            cats: [],
+            user: {}
         }
     }
 
     getOrgs() {
-        fetch('/api/orgs')
+        var token = sessionStorage.getItem('token')
+        fetch('/api/orgs?token=' + token)
         .then(res => res.json())
         .then(res => this.setState({orgs: res.orgs}))
     }
 
     getCats() {
-        fetch('/api/cats')
+        var token = sessionStorage.getItem('token')
+        fetch('/api/cats?token=' + token)
         .then(res => res.json())
         .then(res => this.setState({cats: res.cats}))
     }
 
+    getProfile() {
+        var token = sessionStorage.getItem('token')
+        fetch('/api/profile')
+        .then(res => res.json())
+        .then(res => this.setState({orgs: res.orgs}))
+    }
+
     toggleCausesFollow(e) {
         let token = sessionStorage.getItem('token')
-        let id = e.target.getAttribute('data-id')
+        let id = e.target.getAttribute('value')
 
             fetch('/api/cats/' + id + '/follow?token=' + token, {
                 method: 'POST',
@@ -40,14 +50,14 @@ class UserOnboard extends React.Component {
                 },
                 body: JSON.stringify({
                     token: token,
-                    id: e.target.getAttribute('data-id')
+                    id: e.target.getAttribute('value')
                 })
             })
     }
 
         toggleOrgsFollow(e) {
         let token = sessionStorage.getItem('token')
-        let id = e.target.getAttribute('data-id')
+        let id = e.target.getAttribute('value')
 
             fetch('/api/orgs/' + id + '/follow?token=' + token, {
                 method: 'POST',
@@ -56,9 +66,10 @@ class UserOnboard extends React.Component {
                 },
                 body: JSON.stringify({
                     token: token,
-                    id: e.target.getAttribute('data-id')
+                    id: e.target.getAttribute('value')
                 })
             })
+ 
     }
 
      give() {
@@ -67,56 +78,32 @@ class UserOnboard extends React.Component {
 
     componentDidMount() {
         this.getOrgs()
+        this.getCats()
     }
 
     render() {
+        console.log(this.state.orgs)
         let orgs = this.state.orgs.map((org, i) => <li>
             <div className="checkbox">
                 <label>
-                    <input type="checkbox" data-id={org.id} value={org.name} /> {org.name}
+                    <input type="checkbox" value={org.id} onChange={this.toggleOrgsFollow} /> {org.name}
                 </label></div></li>)
+        let cats = this.state.cats.map((cat, i) => <li>
+            <div className="checkbox">
+                <label>
+                    <input type="checkbox" value={cat.id} onChange={this.toggleCausesFollow} /> {cat.name}
+                </label>
+            </div>
+        </li>)
 
     return <div className="container">
     <div className="row">
         <div className="col-sm-6">
             <h3>What causes are meaningful to you? </h3> <br/>
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="1" value="animal" />
-                    Animal Rights
-                </label>
-            </div>
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="4" value="education" />
-                    Education
-                </label>
-            </div>
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="3" value="community" />
-                    Community
-                </label>
-            </div>  
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="5" value="health" />
-                    Health 
-                </label>
-            </div>   
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="6" value="environment" />
-                    Environment
-                </label>
-            </div> 
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="7" value="social" />
-                    Social Justice
-                </label>
-            </div> 
-        </div>
+            <ul className="list-unstyled">
+                {cats}
+            </ul>
+        </div>  
         <div className="col-sm-6">
             <h3>What organizations are meaningful to you?</h3> <br/>
             <ul className="list-unstyled">
