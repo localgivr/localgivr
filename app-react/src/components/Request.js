@@ -16,14 +16,15 @@ class Request extends React.Component {
             expiration: '',
             link: '',
             img_url: '',
-            cat_id: []
+            zip: '',
+            cats: []
            // token: ''
         }
     }
 
     postRequest() {
         var token = sessionStorage.getItem('token')
-        fetch('/api/needs?token=' + token, {
+        fetch('/api/needs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,7 +40,8 @@ class Request extends React.Component {
                     expiration: this.state.expiration,
                     link: this.state.link,
                     img_url: this.state.img_url,
-                    cat_id: this.state.cat_id
+                    zip: this.state.zip,
+                    cats: this.state.cats 
                 }
                 
             })
@@ -74,6 +76,12 @@ class Request extends React.Component {
                         </div>
                     </div>
                     <div className="form-group">
+                        <label htmlFor="zip" className="col-sm-2 control-label">Request Zip Code</label>
+                        <div className="col-sm-10">
+                        <input type="text" className="form-control" id="zip" placeholder="Zip Code" onChange={(e) => this.setState({zip: e.target.value})} />
+                        </div>
+                    </div>
+                    <div className="form-group">
                         <label htmlFor="type" className="col-sm-2 control-label">Type of Request</label>
                         <div className="col-sm-10">
                         <div className="radio">
@@ -95,37 +103,37 @@ class Request extends React.Component {
                         <div className="col-sm-10">
                         <div className="checkbox">
                             <label>
-                                <input type="checkbox" name="cat" id="animals" value="1" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                <input type="checkbox" name="cat" id="animals" value="1" onClick={(e) => this.setState({ cats: this.state.cats.concat(e.target.value) })} />
                                 Animal Rights
                             </label>
                         </div>
                         <div className="checkbox">
                             <label>
-                                <input type="checkbox" name="cat" id="community" value="3" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                <input type="checkbox" name="cat" id="community" value="3" onClick={(e) => this.setState({ cats: this.state.cats.concat(e.target.value) })} />
                                 Community
                             </label>
                         </div>
                          <div className="checkbox">
                             <label>
-                                <input type="checkbox" name="cat" id="education" value="4" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                <input type="checkbox" name="cat" id="education" value="4" onClick={(e) => this.setState({ cats: this.state.cats.concat(e.target.value) })} />
                                 Education
                             </label>
                         </div>
                         <div className="checkbox">
                             <label>
-                                <input type="checkbox" name="cat" id="health" value="5" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                <input type="checkbox" name="cat" id="health" value="5" onClick={(e) => this.setState({ cats: this.state.cats.concat(e.target.value) })} />
                                 Health
                             </label>
                         </div>
                          <div className="checkbox">
                             <label>
-                                <input type="checkbox" name="cat" id="environment" value="6" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                <input type="checkbox" name="cat" id="environment" value="6" onClick={(e) => this.setState({ cats: this.state.cats.concat(e.target.value) })} />
                                 Environment
                             </label>
                         </div>
                         <div className="checkbox">
                             <label>
-                                <input type="checkbox" name="cat" id="social" value="7" onClick={(e) => this.setState({cat_id: e.target.value})} />
+                                <input type="checkbox" name="cat" id="social" value="7" onClick={(e) => this.setState({ cats: this.state.cats.concat(e.target.value) })} />
                                 Social Justice
                             </label>
                         </div>
