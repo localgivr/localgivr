@@ -12,7 +12,7 @@ class GiveCard extends React.Component {
         this.donate = this.donate.bind(this)
         this.close = this.close.bind(this)
         this.open = this.open.bind(this)
-        this.getNeeds = this.getNeeds.bind(this)
+        // this.getNeeds = this.getNeeds.bind(this)
 
         this.state = {
             showModal: false,
@@ -20,16 +20,16 @@ class GiveCard extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.getNeeds()
-    }
-
-    getNeeds() {
-        fetch('/api/needs')
-        .then(res => res.json())
-        //.then(res => this.setState({needs: res}))
-        .then(blah => console.log(this.props))
-    }
+    // componentDidMount() {
+    //     this.getNeeds()
+    // }
+    //
+    // getNeeds() {
+    //     fetch('/api/needs')
+    //     .then(res => res.json())
+    //     //.then(res => this.setState({needs: res}))
+    //     .then(blah => console.log(this.props))
+    // }
 
     donate() {
         // send post to backend that need has been filled.

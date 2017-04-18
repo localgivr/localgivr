@@ -17,7 +17,6 @@ class NeedsController < ApplicationController
     if @need.save
       # current_org.needs << @need
       #assuming we're getting an array of cat name/hashes within need
-      binding.pry
       params[:need][:cats].each { |c| @need.cats << Cat.find(c) } if params[:need][:cats]
       render json: @need
     else
