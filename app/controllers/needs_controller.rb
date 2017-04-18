@@ -13,7 +13,6 @@ class NeedsController < ApplicationController
 
   def create
     @need = current_org.needs.new(need_params)
-    binding.pry
     if @need.save
       # current_org.needs << @need
       #assuming we're getting an array of cat name/hashes within need

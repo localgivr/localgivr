@@ -16,6 +16,7 @@ class Request extends React.Component {
             expiration: '',
             link: '',
             img_url: '',
+            zip: '',
             cats: []
            // token: ''
         }
@@ -23,7 +24,7 @@ class Request extends React.Component {
 
     postRequest() {
         var token = sessionStorage.getItem('token')
-        fetch('/api/needs?token=' + token, {
+        fetch('/api/needs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,6 +40,7 @@ class Request extends React.Component {
                     expiration: this.state.expiration,
                     link: this.state.link,
                     img_url: this.state.img_url,
+                    zip: this.state.zip,
                     cats: this.state.cats 
                 }
                 
@@ -71,6 +73,12 @@ class Request extends React.Component {
                         <label htmlFor="story" className="col-sm-2 control-label">Description</label>
                         <div className="col-sm-10">
                         <textarea className="form-control" id="story" rows="5" placeholder="Description of your request and what the donations will go towards." onChange={(e) => this.setState({story: e.target.value})}></textarea>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="zip" className="col-sm-2 control-label">Request Zip Code</label>
+                        <div className="col-sm-10">
+                        <input type="text" className="form-control" id="zip" placeholder="Zip Code" onChange={(e) => this.setState({zip: e.target.value})} />
                         </div>
                     </div>
                     <div className="form-group">
