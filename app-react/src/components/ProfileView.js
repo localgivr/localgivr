@@ -5,6 +5,7 @@ class ProfileView extends React.Component {
 constructor(props) {
         super(props)
         this.getProfile = this.getProfile.bind(this)
+        this.viewOnboarding = this.viewOnboarding.bind(this)
 
         this.state = {
             user: {}

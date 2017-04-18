@@ -10,24 +10,24 @@ class GiveCard extends React.Component {
         this.donate = this.donate.bind(this)
         this.close = this.close.bind(this)
         this.open = this.open.bind(this)
-        this.getNeeds = this.getNeeds.bind(this)
+        // this.getNeeds = this.getNeeds.bind(this)
 
         this.state = {
             showModal: false,
-            needs: []
+            // needs: []
         }
     }
 
-    componentDidMount() {
-        this.getNeeds()
-    }
+    // componentDidMount() {
+    //     this.getNeeds()
+    // }
 
-    getNeeds() {
-        fetch('/api/needs')
-        .then(res => res.json())
-        .then(res => this.setState({needs: res}))
-        .then(blah => console.log(this.props))
-    }
+    // getNeeds() {
+    //     fetch('/api/needs')
+    //     .then(res => res.json())
+    //     .then(res => this.setState({needs: res}))
+    //     .then(blah => console.log(this.props))
+    // }
 
     donate() {
         window.open(this.props.link, '_blank')
@@ -43,7 +43,7 @@ class GiveCard extends React.Component {
 
     render() {
        let categories = this.props.cats.map((cat, i) => {
-           return <p>{cat}</p>
+           return <span>{cat}</span>
         })
 
         return <div className="col-sm-6"> 

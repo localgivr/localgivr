@@ -13,125 +13,126 @@ class UserOnboard extends React.Component {
 
         this.state = {
             orgs: [],
-            cats: []
+            cats: [],
+            // user: {}
         }
     }
 
     getOrgs() {
-        fetch('/api/orgs')
-        .then(res => res.json())
-        .then(res => this.setState({orgs: res.orgs}))
+        var token = sessionStorage.getItem('token')
+        fetch('/api/orgs?token=' + token)
+            .then(res => res.json())
+            .then(res => this.setState({ orgs: res.orgs }))
     }
 
     getCats() {
-        fetch('/api/cats')
-        .then(res => res.json())
-        .then(res => this.setState({cats: res.cats}))
+        var token = sessionStorage.getItem('token')
+        fetch('/api/cats?token=' + token)
+            .then(res => res.json())
+            .then(res => this.setState({ cats: res.cats }))
     }
 
-    toggleCausesFollow(e) {
+    // getProfile() {
+    //     var token = sessionStorage.getItem('token')
+    //     fetch('/api/profile')
+    //     .then(res => res.json())
+    //     .then(res => this.setState({orgs: res.orgs}))
+    // }
+
+    toggleCausesFollow(e, i) {
         let token = sessionStorage.getItem('token')
-        let id = e.target.getAttribute('data-id')
+        let id = e.target.getAttribute('value')
 
-            fetch('/api/cats/' + id + '/follow?token=' + token, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    token: token,
-                    id: e.target.getAttribute('data-id')
-                })
+        fetch('/api/cats/' + id + '/follow?token=' + token, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                token: token,
+                id: id
             })
+        })
+        .then(response => response.json())
+        // .then(response => console.log(response))
+        .then(response => {
+            let cats = this.state.cats
+            cats[i].followed = (response.message === 'followed')
+            this.setState({cats: cats})
+        })
     }
 
-        toggleOrgsFollow(e) {
+    toggleOrgsFollow(e, i) {
         let token = sessionStorage.getItem('token')
-        let id = e.target.getAttribute('data-id')
+        let id = e.target.getAttribute('value')
 
-            fetch('/api/orgs/' + id + '/follow?token=' + token, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    token: token,
-                    id: e.target.getAttribute('data-id')
-                })
+        fetch('/api/orgs/' + id + '/follow?token=' + token, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                token: token,
+                id: id
             })
+        })
+        .then(response => response.json())
+        // .then(response => console.log(response))
+        .then(response => {
+            let orgs = this.state.orgs
+            orgs[i].followed = (response.message === 'followed')
+            this.setState({orgs: orgs})
+        })
+
     }
 
-     give() {
+    give() {
         browserHistory.push('/give')
     }
 
     componentDidMount() {
         this.getOrgs()
+        this.getCats()
     }
 
     render() {
+        console.log(this.state.orgs)
         let orgs = this.state.orgs.map((org, i) => <li>
             <div className="checkbox">
                 <label>
-                    <input type="checkbox" data-id={org.id} value={org.name} /> {org.name}
+                    <input type="checkbox" value={org.id} onChange={(e) => this.toggleOrgsFollow(e, i)} checked={org.followed} /> {org.name}
                 </label></div></li>)
-
-    return <div className="container">
-    <div className="row">
-        <div className="col-sm-6">
-            <h3>What causes are meaningful to you? </h3> <br/>
+        let cats = this.state.cats.map((cat, i) => <li>
             <div className="checkbox">
                 <label>
-                    <input type="checkbox" data-id="1" value="animal" />
-                    Animal Rights
+                    <input type="checkbox" value={cat.id} onChange={(e) => this.toggleCausesFollow(e, i)} checked={cat.followed} /> {cat.name}
                 </label>
             </div>
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="4" value="education" />
-                    Education
-                </label>
-            </div>
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="3" value="community" />
-                    Community
-                </label>
-            </div>  
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="5" value="health" />
-                    Health 
-                </label>
-            </div>   
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="6" value="environment" />
-                    Environment
-                </label>
-            </div> 
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox" data-id="7" value="social" />
-                    Social Justice
-                </label>
-            </div> 
-        </div>
-        <div className="col-sm-6">
-            <h3>What organizations are meaningful to you?</h3> <br/>
-            <ul className="list-unstyled">
-                {orgs}
-            </ul>
-        </div>     
+        </li>)
 
-        </div> 
-        <br/><br/><br/>
-        <div className="row text-center give-button">
-            <Button bsStyle="success" bsSize="large" onClick={this.give}>Start Giving</Button>        
+        return <div className="container">
+            <div className="row">
+                <div className="col-sm-6">
+                    <h3>What causes are meaningful to you? </h3> <br />
+                    <ul className="list-unstyled">
+                        {cats}
+                    </ul>
+                </div>
+                <div className="col-sm-6">
+                    <h3>What organizations are meaningful to you?</h3> <br />
+                    <ul className="list-unstyled">
+                        {orgs}
+                    </ul>
+                </div>
+
+            </div>
+            <br /><br /><br />
+            <div className="row text-center give-button">
+                <Button bsStyle="success" bsSize="large" onClick={this.give}>Start Giving</Button>
+            </div>
+            <br /><br />
+
         </div>
-        <br/><br/>               
-                
-    </div>
     }
 }
 
