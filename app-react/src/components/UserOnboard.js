@@ -9,9 +9,11 @@ class UserOnboard extends React.Component {
         super(props)
         this.give = this.give.bind(this)
         this.getOrgs = this.getOrgs.bind(this)
+        this.getCats = this.getCats.bind(this)
 
         this.state = {
-            orgs: []
+            orgs: [],
+            cats: []
         }
     }
 
