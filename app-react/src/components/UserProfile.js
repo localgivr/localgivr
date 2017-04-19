@@ -8,6 +8,7 @@ class UserProfile extends React.Component {
     constructor(props) {
         super(props)
         this.getFeed = this.getFeed.bind(this)
+        this.kickNeed = this.kickNeed.bind(this)
 
         this.state = {
             needs: []
@@ -23,13 +24,17 @@ class UserProfile extends React.Component {
         .then(res => this.setState({needs: res.needs}))
     }
 
+    kickNeed(id) {
+      //remove element with id/index from needs array
+    }
+
     componentDidMount() {
         this.getFeed()
     }
 
     render() {
         let UserCards = this.state.needs.map((need, i) => {
-            return <GiveCard {...need}  key={i} resetFeed={this.getFeed} /> 
+            return <GiveCard {...need}  key={i} kickNeed={this.kickNeed} />
         })
 
         return <div className="container">

@@ -34,9 +34,11 @@ class GiveCard extends React.Component {
     donate() {
         // send post to backend that need has been filled.
         console.log("LOOK AN ID: "+this.props.id)
+        console.log("look a key: "+this.props)
 
         // trigger re-render without the clicked need
         // this.props.resetFeed() //? make sure necessary
+        // maybe this.props.kickNeed()
         this.fillNeed()
         console.log(this.state)
         this.setState({ showModal: false });
