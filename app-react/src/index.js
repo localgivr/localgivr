@@ -12,7 +12,9 @@ import Request from './components/Request'
 import UserProfile from './components/UserProfile'
 import OrgProfile from './components/OrgProfile'
 import UserOnboard from'./components/UserOnboard'
-import UserFeed from './components/UserFeed'
+
+window.user = JSON.parse(sessionStorage.getItem('user'))
+const isOrg = (window.user && window.user.ein)
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -22,10 +24,9 @@ ReactDOM.render(
           <Route path='organization-signup' component={OrgSignup} />
           <Route path='give' component={Give} />
           <Route path='request' component={Request} />
-          <Route path='profile' component={UserProfile} />
-          <Route path='organization-profile' component={OrgProfile} />
+          <Route path='profile' component={isOrg ? OrgProfile : UserProfile} />
+         {/* <Route path='organization-profile' component={OrgProfile} />*/}
           <Route path='causes' component={UserOnboard} />
-          <Route path='feed' component={UserFeed} />
         </Route>
     </Router>,
   document.getElementById('root')
