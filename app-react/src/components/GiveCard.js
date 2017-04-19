@@ -2,6 +2,8 @@ import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import './css/give.css'
 
+
+
 class GiveCard extends React.Component {
     constructor(props) {
         super(props)
@@ -17,19 +19,44 @@ class GiveCard extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.getNeeds()
-    // }
-
-    // getNeeds() {
-    //     fetch('/api/needs')
-    //     .then(res => res.json())
-    //     .then(res => this.setState({needs: res}))
-    //     .then(blah => console.log(this.props))
-    // }
-
     donate() {
-        window.open(this.props.link, '_blank')
+        // send post to backend that need has been filled.
+        console.log("LOOK AN ID: "+this.props.id)
+        console.log("look a key: "+this.props.index)
+
+        // trigger re-render without the clicked need
+        this.fillNeed()
+        // try and fill with database
+        // if success, open link in new page
+        // if not, show error
+        console.log(this.state)
+        this.props.kickNeed(this.props.index)
+        this.setState({ showModal: false });
+    }
+
+    fillNeed() {
+      var token = sessionStorage.getItem('token')
+      console.log(token)
+      fetch('/api/needs/'+this.props.id, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          token: token
+        })
+      })
+      .then( res => res.json() )
+      .then( res => {
+        console.log(res)
+        if (res[0].error) {
+          alert(res[0].error)
+        } else {
+          window.open(this.props.link, '_blank')
+        }
+      })
+
     }
 
     close() {
@@ -42,10 +69,10 @@ class GiveCard extends React.Component {
 
     render() {
        let categories = this.props.cats.map((cat, i) => {
-           return <span>{cat}. </span>
+           return <span key={i}>{cat}</span>
         })
 
-        return <div className="col-sm-6"> 
+        return <div className="col-sm-6">
             <div className="thumbnail">
                 <div className="thumbnail-house text-center">
                     <img className="thumbnail-img center-block" src={this.props.img_url} alt={this.props.title} />
@@ -65,7 +92,7 @@ class GiveCard extends React.Component {
                             <h3>{this.props.org.name}</h3>
                             <p>{this.props.story}</p><br />
                             <p><strong>Category: </strong>{categories}</p>
-                            
+
                             <p><strong>Amount Needed: </strong> {this.props.amount}</p>
                         </Modal.Body>
                         <Modal.Footer>
