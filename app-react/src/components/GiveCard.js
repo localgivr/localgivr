@@ -16,7 +16,7 @@ class GiveCard extends React.Component {
 
         this.state = {
             showModal: false,
-          //  needs: []
+            // needs: []
         }
     }
 
@@ -70,7 +70,11 @@ class GiveCard extends React.Component {
     }
 
     render() {
-        return <div className="col-sm-6">
+       let categories = this.props.cats.map((cat, i) => {
+           return <span>{cat}</span>
+        })
+
+        return <div className="col-sm-6"> b
             <div className="thumbnail">
                 <div className="thumbnail-house text-center">
                     <img className="thumbnail-img center-block" src={this.props.img_url} alt={this.props.title} />
@@ -88,6 +92,8 @@ class GiveCard extends React.Component {
                         <Modal.Body>
                             <h3>{this.props.org.name}</h3>
                             <p>{this.props.story}</p><br />
+                            <p><strong>Category: </strong>{categories}</p>
+
                             <p><strong>Amount Needed: </strong> {this.props.amount}</p>
                         </Modal.Body>
                         <Modal.Footer>

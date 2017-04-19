@@ -31,6 +31,7 @@ class UserProfile extends React.Component {
         let UserCards = this.state.needs.map((need, i) => {
             return <GiveCard {...need}  key={i} resetFeed={this.getFeed} /> 
         })
+
         return <div className="container">
             <div className="row">
                 <div className="col-sm-5">
