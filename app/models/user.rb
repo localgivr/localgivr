@@ -23,12 +23,33 @@ class User < ApplicationRecord
     result = result.within(20, origin: self).active.limit(num).by_distance(origin: self).group('needs.id')
   end
 
+  def self.send_reminder
+    @client = get_client
+
+    User.first.each do |user|
+      @client.account.messages.create({
+          :to => "3178258855",#user.phone,
+          :from => '13178544483',
+          :body => 'Weekly opportunity to serve:'#'#{user.feed.first#link}'
+      })
+    end
+
+  end
+
   private
+
+  def self.get_client
+    account_sid = ENV['TwilioAccountSid']
+    auth_token = ENV['TwilioAuthToken']
+
+    # set up a client to talk to the Twilio REST API
+    @client = Twilio::REST::Client.new account_sid, auth_token
+  end
 
   def geocode_zip
     geo=Geokit::Geocoders::MultiGeocoder.geocode (zip)
     errors.add(:zip, "could not be geocoded") if !geo.success
     self.lat, self.lng, self.city, self.state = geo.lat,geo.lng,geo.city,geo.state if geo.success
   end
-  
+
 end
