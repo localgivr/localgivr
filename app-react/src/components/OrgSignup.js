@@ -47,6 +47,7 @@ class OrgSignup extends React.Component {
         .then(function(response) {
             if (response.org.token) {
                 sessionStorage.setItem('token', response.org.token);
+                sessionStorage.setItem('user', JSON.stringify(response.org));
                 browserHistory.push('/organization-profile')
             }
             else {
