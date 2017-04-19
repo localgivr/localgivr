@@ -1,6 +1,7 @@
 import React from 'react'
 import './css/profile.css'
 import GiveCard from './GiveCard'
+import OrgView from './OrgView'
 
 class OrgProfile extends React.Component {
     constructor(props) {
@@ -33,10 +34,7 @@ class OrgProfile extends React.Component {
         return <div className="container">
             <div className="row">
                 <div className="col-sm-5">
-                    <ul className="list-unstyled text-center" id="user-profile-box">
-                        <li className="text-uppercase text-center" id="username"><strong><h3>Humane Society of Indianapolis</h3></strong></li><br/>
-                        <li className="text-uppercase text-center" id="location">Indianapolis, IN</li><br/>
-                    </ul>
+                    <OrgView/>
                 </div>
                 <div className="col-sm-6 requests">
                     <div className="row">
