@@ -59,7 +59,11 @@ class GiveCard extends React.Component {
         })
       })
       .then( res => res.json() )
-      .then( res => console.log(res) )
+      .then( res => {
+        console.log(res)
+        res.error ? console.log(res.error)
+        : console.log("success!")
+      })
 
     }
 
