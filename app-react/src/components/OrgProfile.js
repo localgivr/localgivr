@@ -3,7 +3,37 @@ import './css/profile.css'
 import GiveCard from './GiveCard'
 
 class OrgProfile extends React.Component {
+    constructor(props) {
+        super(props)
+        this.getOrgNeeds = this.getOrgNeeds.bind(this)
+
+        this.state = {
+            needs: [] 
+        }
+    }
+
+    getOrgNeeds() {
+        var token = sessionStorage.getItem('token') 
+
+        fetch('/api/orgs/needs?token' + token, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(res => this.setState({needs: res.needs}))
+    }
+
+    componentDidMount() {
+        this.getOrgNeeds()
+    }
+
     render() {
+        let OrgCards = this.state.needs.map((need, i) => {
+            return <GiveCard {...need} key={i} />
+        })
+
         return <div className="container">
             <div className="row">
                 <div className="col-sm-5">
@@ -29,7 +59,7 @@ class OrgProfile extends React.Component {
                     </div>    
                     <div className="row">    
                         <h2>Fulfilled Requests</h2>
-                        <GiveCard /> <GiveCard />
+                        {OrgCards}
                     </div>
                 </div>
             </div>
