@@ -10,10 +10,10 @@ class OrgsController < ApplicationController
 
   def show
     @needs = current_org.needs
-    if params[:id] == 'needs'
-      render json: @needs
-    else
-      request_error("not a valid userpath")
+    case params[:id]
+    when 'needs' then render json: @needs
+    when 'profile' then render json: current_org
+    else request_error("not a valid userpath")
     end
   end
 
