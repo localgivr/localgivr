@@ -56,9 +56,8 @@ class GiveCard extends React.Component {
           token: token
         })
       })
-      .then(function(response){ console.log(response)})
-      // .then( function(response){ console.log(response) }
-    //  )
+      .then(res => res.json())
+      .then( res => console.log(res))
 
     }
 
