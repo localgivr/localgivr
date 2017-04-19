@@ -1,5 +1,4 @@
 import React from 'react'
-// import browserHistory from 'react-router'
 import { Modal, Button } from 'react-bootstrap'
 import './css/give.css'
 
@@ -43,7 +42,7 @@ class GiveCard extends React.Component {
 
     render() {
        let categories = this.props.cats.map((cat, i) => {
-           return <span>{cat}</span>
+           return <span>{cat}. </span>
         })
 
         return <div className="col-sm-6"> 
@@ -62,6 +61,7 @@ class GiveCard extends React.Component {
                             <Modal.Title>{this.props.title}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
+                            <img src={this.props.img_url} alt={this.props.title} />
                             <h3>{this.props.org.name}</h3>
                             <p>{this.props.story}</p><br />
                             <p><strong>Category: </strong>{categories}</p>
