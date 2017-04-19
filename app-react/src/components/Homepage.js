@@ -4,6 +4,7 @@ import { Jumbotron, Button } from 'react-bootstrap'
 import './css/homepage.css'
 
 class Homepage extends React.Component {
+
     constructor(props) {
         super(props)
 
@@ -25,7 +26,7 @@ class Homepage extends React.Component {
 
             <div className="home-header text-center">
                     <h1>Enticing Text:</h1> <br/>
-                    
+
             </div>
         </div>
     }
