@@ -9,7 +9,8 @@ class OrgsController < ApplicationController
 
   def show
     @org = Org.find(params[:id])
-    render json: @org
+    @needs = @org.needs
+    render json: @needs
   end
 
   def create
