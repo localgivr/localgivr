@@ -1,5 +1,4 @@
 import React from 'react'
-// import browserHistory from 'react-router'
 import { Modal, Button } from 'react-bootstrap'
 import './css/give.css'
 
@@ -20,25 +19,12 @@ class GiveCard extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.getNeeds()
-    // }
-    //
-    // getNeeds() {
-    //     fetch('/api/needs')
-    //     .then(res => res.json())
-    //     //.then(res => this.setState({needs: res}))
-    //     .then(blah => console.log(this.props))
-    // }
-
     donate() {
         // send post to backend that need has been filled.
         console.log("LOOK AN ID: "+this.props.id)
         console.log("look a key: "+this.props.index)
 
         // trigger re-render without the clicked need
-        // this.props.resetFeed() //? make sure necessary
-        // maybe this.props.kickNeed()
         this.fillNeed()
         // try and fill with database
         // if success, open link in new page
@@ -102,6 +88,7 @@ class GiveCard extends React.Component {
                             <Modal.Title>{this.props.title}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
+                            <img src={this.props.img_url} alt={this.props.title} />
                             <h3>{this.props.org.name}</h3>
                             <p>{this.props.story}</p><br />
                             <p><strong>Category: </strong>{categories}</p>

@@ -1,6 +1,7 @@
 class OrgsController < ApplicationController
 
   before_action :require_user, only: [:follow]
+  before_action :require_org, only: [:show]
 
   def index
     @orgs = Org.all
@@ -8,9 +9,12 @@ class OrgsController < ApplicationController
   end
 
   def show
-    @org = Org.find(params[:id])
-    @needs = @org.needs
-    render json: @needs
+    @needs = current_org.needs
+    case params[:id]
+    when 'needs' then render json: @needs
+    when 'profile' then render json: current_org
+    else request_error("not a valid userpath")
+    end
   end
 
   def create

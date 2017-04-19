@@ -1,6 +1,5 @@
 import React from 'react';
 import { browserHistory } from 'react-router'
-// import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 // import React, { Component } from 'react';
 import './css/layout.css'
 
@@ -15,7 +14,6 @@ class Layout extends React.Component {
       this.state = {
         email: '',
         password: ''
-        
             }
   }
 
@@ -29,8 +27,7 @@ class Layout extends React.Component {
       body: JSON.stringify({
         user: {
           email: this.state.email,
-          password: this.state.password,
-          token: this.state.token
+          password: this.state.password
           }
       })
     })
@@ -43,10 +40,12 @@ class Layout extends React.Component {
       
         if (response.user && response.user.token) {
           sessionStorage.setItem('token', response.user.token);
+          sessionStorage.setItem('user', JSON.stringify(response.user));
           location.href = './give';
                 }
         else if (response.org && response.org.token) {
           sessionStorage.setItem('token', response.org.token);
+          sessionStorage.setItem('user', JSON.stringify(response.org));
           location.href = './request'
         }
         else {

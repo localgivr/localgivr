@@ -51,6 +51,7 @@ class Signup extends React.Component {
 
             if (response.user.token) {
                 sessionStorage.setItem('token', response.user.token);
+                sessionStorage.setItem('user', JSON.stringify(response.user));
                 browserHistory.push('/causes') 
             }
             else {
