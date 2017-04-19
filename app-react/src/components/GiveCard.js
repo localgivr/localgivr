@@ -17,17 +17,6 @@ class GiveCard extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.getNeeds()
-    // }
-
-    // getNeeds() {
-    //     fetch('/api/needs')
-    //     .then(res => res.json())
-    //     .then(res => this.setState({needs: res}))
-    //     .then(blah => console.log(this.props))
-    // }
-
     donate() {
         window.open(this.props.link, '_blank')
     }
