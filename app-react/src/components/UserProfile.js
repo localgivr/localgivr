@@ -24,8 +24,11 @@ class UserProfile extends React.Component {
         .then(res => this.setState({needs: res.needs}))
     }
 
-    kickNeed(id) {
+    kickNeed(index) {
       //remove element with id/index from needs array
+      var arr = this.state.needs
+      arr.splice(index, 1)
+      this.setState({needs: arr})
     }
 
     componentDidMount() {
@@ -34,7 +37,7 @@ class UserProfile extends React.Component {
 
     render() {
         let UserCards = this.state.needs.map((need, i) => {
-            return <GiveCard {...need}  key={i} kickNeed={this.kickNeed} />
+            return <GiveCard {...need}  key={i} kickNeed={this.kickNeed} index={i} />
         })
 
         return <div className="container">

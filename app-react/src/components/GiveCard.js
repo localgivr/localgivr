@@ -34,15 +34,18 @@ class GiveCard extends React.Component {
     donate() {
         // send post to backend that need has been filled.
         console.log("LOOK AN ID: "+this.props.id)
-        console.log("look a key: "+this.props)
+        console.log("look a key: "+this.props.index)
 
         // trigger re-render without the clicked need
         // this.props.resetFeed() //? make sure necessary
         // maybe this.props.kickNeed()
         this.fillNeed()
+        // try and fill with database
+        // if success, open link in new page
+        // if not, show error
         console.log(this.state)
+        this.props.kickNeed(this.props.index)
         this.setState({ showModal: false });
-        // window.open(this.props.link, '_blank')
     }
 
     fillNeed() {
@@ -61,8 +64,11 @@ class GiveCard extends React.Component {
       .then( res => res.json() )
       .then( res => {
         console.log(res)
-        res.error ? console.log(res.error)
-        : console.log("success!")
+        if (res[0].error) {
+          alert(res[0].error)
+        } else {
+          window.open(this.props.link, '_blank')
+        }
       })
 
     }
