@@ -56,8 +56,8 @@ class GiveCard extends React.Component {
           token: token
         })
       })
-      .then(res => res.json())
-      .then( res => console.log(res))
+      .then( res => res.json() )
+      .then( res => console.log(res) )
 
     }
 
@@ -71,10 +71,10 @@ class GiveCard extends React.Component {
 
     render() {
        let categories = this.props.cats.map((cat, i) => {
-           return <span>{cat}</span>
+           return <span key={i}>{cat}</span>
         })
 
-        return <div className="col-sm-6"> b
+        return <div className="col-sm-6">
             <div className="thumbnail">
                 <div className="thumbnail-house text-center">
                     <img className="thumbnail-img center-block" src={this.props.img_url} alt={this.props.title} />
