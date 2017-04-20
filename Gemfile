@@ -46,6 +46,7 @@ gem 'pg_search'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'geokit-rails'
 gem 'twilio-ruby', '~> 4.11.1'
+gem 'rails_12factor', group: :production
 
 gem 'rack-cors'
 # Use Capistrano for deployment
