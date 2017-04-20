@@ -29,7 +29,7 @@ constructor(props) {
     }
 
     render() {
-        return  <div>
+        return  <div className="col-sm-6 col-sm-offset-3">
                     <ul className="list-unstyled text-center" id="user-profile-box">
                         <li><img className="center-block" id="profile-picture" src={this.state.user.img_url} alt="Profile Picture" /></li> <br/>
                         <li className="text-uppercase text-center" id="username"><strong>{this.state.user.first_name}</strong></li><br/>

@@ -66,3 +66,9 @@ img {
 .requests {
     margin-left: 20px;
 }
+
+.to-request {
+    background: #994A29;
+    color: white;
+    margin-bottom: 20px;
+}
