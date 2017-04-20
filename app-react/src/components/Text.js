@@ -32,20 +32,23 @@ class Text extends React.Component {
 
     render() {
 
-        return <div className="container text-center">
-            <h1>{this.state.needs.title}</h1>
-            <br/><br/>
-            <img src={this.state.needs.img_url} alt={this.state.needs.title} />
-            <br/>
-            <h3>name!</h3>    
-            <p>{this.state.needs.story}</p>    
-            <br/><br/>
-            <p><strong>Category: </strong>{this.state.needs.cats}</p>
-            <p><strong>Amount Needed: </strong>{this.state.needs.amount}</p>
-            <br/><br/>
-            <button type="button" className="btn donate-button" onClick={this.donate}>Donate</button>
-            
-        </div>
+        return <div className="text">
+        <div className="container text-center">
+            <div className="text-card">
+                <h1>{this.state.needs.title}</h1>
+                <br/>
+                <img src={this.state.needs.img_url} alt={this.state.needs.title} />
+                <br/>
+                <h3>name!</h3>    
+                <p>{this.state.needs.story}</p>    
+                <br/>
+                <p><strong>Category: </strong>{this.state.needs.cats}</p>
+                <p><strong>Amount Needed: </strong>{this.state.needs.amount}</p>
+                <br/>
+                <button type="button" className="btn donate-button" onClick={this.donate}>Donate</button>
+            </div>
+        </div>   
+    </div>
     }
 }
 

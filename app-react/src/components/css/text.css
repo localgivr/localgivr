@@ -8,3 +8,16 @@ img {
 .donate-button {
     margin-bottom: 25px;
 }
+
+.text {
+    background: #F4F4F4;
+}
+
+.text-card {
+    padding: 40px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+    background-color: white;
+    max-width: 900px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
