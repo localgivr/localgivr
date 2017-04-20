@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery unless: -> { request.format.json? }
 
+  def static
+    render file: 'public/index.html'
+  end
 
+  
   private
 
   def request_error(msg, code = 400)

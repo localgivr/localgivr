@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     post '/cats/:id/follow' => 'cats#follow'
   end
 
+  get "*path" => 'application#static'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
