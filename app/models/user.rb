@@ -29,9 +29,9 @@ class User < ApplicationRecord
     User.all.limit(3).each do |user|
       print '.'
       @client.account.messages.create({
-          :to => "3178258855",#user.phone,
+          :to => "248-561-4023",#user.phone,
           :from => '13178544483',
-          :body => "Weekly opportunity to serve: http://localhost:3001/text/#{user.feed.first.id}"
+          :body => "New weekly opportunity to serve: http://localhost:3001/text/#{user.feed.first.id}"
       }) unless user.feed.empty?
     end
 
