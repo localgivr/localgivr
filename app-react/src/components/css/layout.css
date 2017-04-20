@@ -6,17 +6,17 @@ img {
 }
 
 .nav {
-    background: #406056;
+    /*background: #406056;*/
     /*background: url(/img/absurdidad.png);*/
     font-family: 'Raleway', sans-serif;
-    padding: 25px;
-    color: white;
-    border-bottom: 5px solid #D9F5A2;
+    padding: 15px;
+    color: #994A29;
+    /*border-bottom: 5px solid #406056;*/
 }
 
 .nav h3 {
-    border: 1px solid white;
-    padding: 7px;
+    /*border: 1px solid #406056;;*/
+    /*padding: 7px;*/
     margin-top: -7px;
 }
 
@@ -25,7 +25,8 @@ img {
 }
 
 .nav .btn {
-    background: #D9F5A2;
+    background: #994A29;
+    color: white;
     border: none;
 }
 
@@ -35,7 +36,7 @@ img {
 
 
 footer {
-    background: #406056;
+    background: #994A29;
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 5px;
