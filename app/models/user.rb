@@ -25,13 +25,14 @@ class User < ApplicationRecord
 
   def self.send_reminder
     @client = get_client
-
-    User.first.each do |user|
+    print "\n"
+    User.all.limit(3).each do |user|
+      print '.'
       @client.account.messages.create({
           :to => "3178258855",#user.phone,
           :from => '13178544483',
           :body => "Weekly opportunity to serve: http://localhost:3001/text/#{user.feed.first.id}"
-      })
+      }) unless user.feed.empty?
     end
 
   end
