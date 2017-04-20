@@ -30,6 +30,9 @@ class ApplicationController < ActionController::Base
     @follow ? @follow.destroy : current_user.follows.create(followable: followee)
   end
 
+  def static
+    render file: 'public/index.html'
+  end
 
 
   def pagination_dict(collection)
