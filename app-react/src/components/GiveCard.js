@@ -78,12 +78,12 @@ class GiveCard extends React.Component {
                     <div className="thumbnail-house text-center">
                         <img className="thumbnail-img center-block" src={this.props.img_url} alt={this.props.title} />
                     </div>
-                    <h3 className="text-uppercase text-center">{this.props.title}</h3>  
                     
                 <div className="caption">
-                    <div className="background-white">
+                    <div className="background-white text-center">
+                        <h3 className="text-uppercase text-center">{this.props.title}</h3>  
                         <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> {this.props.city}, {this.props.state}</div> <br/><br/>
-                        <p>{this.props.story.slice(0, 60)}...</p>
+                        <p className="text-left">{this.props.story.slice(0, 60)}...</p>
                         <p className="text-center"><a href="#" className="btn btn-default  modal-button" role="button" onClick={this.open}>Learn More</a></p> 
                     </div>
                         

@@ -64,74 +64,75 @@ class OrgSignup extends React.Component {
             <h1>Community-backed resources.</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus eos dignissimos numquam provident nostrum maxime voluptatem, natus quo repudiandae odio distinctio, praesentium cumque quis quasi vel pariatur accusamus corporis!</p>
         </div>
-        <div className="container org-give-card">
-            <div className="row org-signup-form">
-                <div className="form-horizontal">
-                <div className="form-group">
-                    <label htmlFor="name" className="col-sm-2 control-label">Organization Name</label>
-                    <div className="col-sm-10">
-                    <input type="text" className="form-control" id="name" placeholder="Organization Name" onChange={(e) => this.setState({name: e.target.value})} />
+        <div className="container-fluid signup-back">
+            <div className="container org-give-card">
+                <div className="row org-signup-form">
+                    <div className="form-horizontal">
+                    <div className="form-group">
+                        <label htmlFor="name" className="col-sm-2 control-label">Organization Name</label>
+                        <div className="col-sm-10">
+                        <input type="text" className="form-control" id="name" placeholder="Organization Name" onChange={(e) => this.setState({name: e.target.value})} />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password" className="col-sm-2 control-label">Password</label>
-                    <div className="col-sm-10">
-                    <input type="password" className="form-control" id="password" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} />
+                    <div className="form-group">
+                        <label htmlFor="password" className="col-sm-2 control-label">Password</label>
+                        <div className="col-sm-10">
+                        <input type="password" className="form-control" id="password" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email" className="col-sm-2 control-label">Contact Email</label>
-                    <div className="col-sm-10">
-                    <input type="email" className="form-control" id="email" placeholder="Email" onChange={(e) => this.setState({email: e.target.value})} />
+                    <div className="form-group">
+                        <label htmlFor="email" className="col-sm-2 control-label">Contact Email</label>
+                        <div className="col-sm-10">
+                        <input type="email" className="form-control" id="email" placeholder="Email" onChange={(e) => this.setState({email: e.target.value})} />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="phone" className="col-sm-2 control-label">Contact Number</label>
-                    <div className="col-sm-10">
-                    <input type="tel" className="form-control" id="phone" placeholder="(XXX) XXX-XXXX" onChange={(e) => this.setState({phone: e.target.value})} />
+                    <div className="form-group">
+                        <label htmlFor="phone" className="col-sm-2 control-label">Contact Number</label>
+                        <div className="col-sm-10">
+                        <input type="tel" className="form-control" id="phone" placeholder="(XXX) XXX-XXXX" onChange={(e) => this.setState({phone: e.target.value})} />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="street" className="col-sm-2 control-label">Address</label>
-                    <div className="col-sm-10">
-                    <input type="text" className="form-control" id="street" placeholder="123 Appletree Dr., Suite 500" onChange={(e) => this.setState({street: e.target.value})} />
+                    <div className="form-group">
+                        <label htmlFor="street" className="col-sm-2 control-label">Address</label>
+                        <div className="col-sm-10">
+                        <input type="text" className="form-control" id="street" placeholder="123 Appletree Dr., Suite 500" onChange={(e) => this.setState({street: e.target.value})} />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="city" className="col-sm-2 control-label">City</label>
-                    <div className="col-sm-10">
-                    <input type="text" className="form-control" id="city" placeholder="Indianapolis" onChange={(e) => this.setState({city: e.target.value})} />
+                    <div className="form-group">
+                        <label htmlFor="city" className="col-sm-2 control-label">City</label>
+                        <div className="col-sm-10">
+                        <input type="text" className="form-control" id="city" placeholder="Indianapolis" onChange={(e) => this.setState({city: e.target.value})} />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="state" className="col-sm-2 control-label">State</label>
-                    <div className="col-sm-10">
-                    <input type="text" className="form-control" id="state" placeholder="Indiana" onChange={(e) => this.setState({state: e.target.value})} />
+                    <div className="form-group">
+                        <label htmlFor="state" className="col-sm-2 control-label">State</label>
+                        <div className="col-sm-10">
+                        <input type="text" className="form-control" id="state" placeholder="Indiana" onChange={(e) => this.setState({state: e.target.value})} />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="zip" className="col-sm-2 control-label">Zip Code</label>
-                    <div className="col-sm-10">
-                    <input type="number" className="form-control" id="zip" placeholder="46225" onChange={(e) => this.setState({zip: e.target.value})} />
+                    <div className="form-group">
+                        <label htmlFor="zip" className="col-sm-2 control-label">Zip Code</label>
+                        <div className="col-sm-10">
+                        <input type="number" className="form-control" id="zip" placeholder="46225" onChange={(e) => this.setState({zip: e.target.value})} />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <div className="col-sm-offset-2 col-sm-10">
-                    <div className="checkbox">
-                        <label>
-                        <input type="checkbox"/> Agree to Terms of Service.
-                        </label>
+                    <div className="form-group">
+                        <div className="col-sm-offset-2 col-sm-10">
+                        <div className="checkbox">
+                            <label>
+                            <input type="checkbox"/> Agree to Terms of Service.
+                            </label>
+                        </div>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-sm-offset-2 col-sm-10">
+                        <button type="button" className="btn btn-default" onClick={this.orgSignup}>Sign up</button>
+                        </div>
                     </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <div className="col-sm-offset-2 col-sm-10">
-                    <button type="button" className="btn btn-default" onClick={this.orgSignup}>Sign up</button>
-                    </div>
-                </div>
                 </div>
             </div>
-
         </div>
         </div>
     }

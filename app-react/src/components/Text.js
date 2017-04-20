@@ -45,7 +45,7 @@ class Text extends React.Component {
                 <p><strong>Category: </strong>{this.state.needs.cats}</p>
                 <p><strong>Amount Needed: </strong>{this.state.needs.amount}</p>
                 <br/>
-                <button type="button" className="btn donate-button" onClick={this.donate}>Donate</button>
+                <button type="button" className="btn donate-button-text" onClick={this.donate}>Donate</button>
             </div>
         </div>   
     </div>

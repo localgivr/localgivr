@@ -128,7 +128,7 @@ class UserOnboard extends React.Component {
             </div>
             <br /><br /><br />
             <div className="row text-center give-button">
-                <Button bsStyle="success" bsSize="large" onClick={this.give}>Start Giving</Button>
+                <Button bsStyle="default" bsSize="large" onClick={this.give}>Start Giving</Button>
             </div>
             <br /><br />
 

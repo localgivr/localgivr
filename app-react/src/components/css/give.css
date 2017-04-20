@@ -21,8 +21,9 @@ img {
 .thumbnail {
     font-family: 'Raleway', sans-serif;
     border: none;
-    border-radius: 2px;
-    background: linear-gradient(rgba(199,130,131, 0.75), rgba(153,74,41, 0.75));
+    /*background: linear-gradient(rgba(193,147,127, 0.75), rgba(153,74,41, 0.75));*/
+    background: #EADBD4;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
     color: white;
 }
 
@@ -43,12 +44,16 @@ img {
           transform: translate(-50%,-50%);
      width: 100%;
      height: auto;
-     opacity: 0.85;
+     opacity: 0.80;
+}
+
+.caption {
+    padding: -2px;
 }
 
 .background-white {
-    background: rgba(255,255,255, .75);
-    border-radius: 7px;
+    background: rgba(255,255,255, .85);
+    border-radius: 3px;
     padding: 15px;
     color: black;
 }
@@ -66,8 +71,7 @@ img {
 
 .donate-button,
 .modal-header {
-    background: #994A29;
-    color: white;
+    background: #EADBD4;
 }
 
 .close-button {

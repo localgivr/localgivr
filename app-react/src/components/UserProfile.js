@@ -42,14 +42,11 @@ class UserProfile extends React.Component {
 
         return <div className="container">
             <div className="row">
-                <div className="col-sm-5">
-                    <ProfileView />
-                </div>
-                <div className="col-sm-6">
+                <ProfileView />
+            </div>
+            <div className="row">
                     <div>{UserCards}</div>
                 </div>
-            </div>
-
         </div>
     }
 }
