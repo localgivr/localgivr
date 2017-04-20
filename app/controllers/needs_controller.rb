@@ -9,7 +9,8 @@ class NeedsController < ApplicationController
 
   def show
     @need = Need.find(params[:id])
-    render json: @need
+    @need ? render(json: @need) : request_error("need not found")
+
   end
 
   def create
