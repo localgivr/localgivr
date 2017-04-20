@@ -31,7 +31,7 @@ class User < ApplicationRecord
       @client.account.messages.create({
           :to => "3178258855",#user.phone,
           :from => '13178544483',
-          :body => "Weekly opportunity to serve: #{user.feed.first.link}"
+          :body => "Weekly opportunity to serve: http://localhost:3001/text/#{user.feed.first.id}"
       }) unless user.feed.empty?
     end
 
