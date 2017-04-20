@@ -1,5 +1,6 @@
 import React from 'react'
 import './css/text.css'
+import '../helpers/helps.js'
 
 class Text extends React.Component {
     constructor(props) {
@@ -20,8 +21,9 @@ class Text extends React.Component {
         .then(res => res.json())
         //.then(res => console.log(res))
         .then(res => {
+          console.log("hi")
           this.setState({needs: res.need})
-          
+
         })
     }
 
@@ -39,6 +41,7 @@ class Text extends React.Component {
         <div className="container text-center">
             <div className="text-card">
                 <h1>{this.state.needs.title}</h1>
+                <h1>{"hi"}</h1>
                 <br/>
                 <img src={this.state.needs.img_url} alt={this.state.needs.title} />
                 <br/>

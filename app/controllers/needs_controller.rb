@@ -8,7 +8,7 @@ class NeedsController < ApplicationController
   end
 
   def show
-    @need = Need.find(params[:id])
+    @need = Need.find_by(id: params[:id])
     @need ? render(json: @need) : request_error("need not found")
 
   end
@@ -26,7 +26,7 @@ class NeedsController < ApplicationController
   end
 
   def update
-    @need = Need.find(params[:id])
+    @need = Need.find_by(id: params[:id])
     if @need
       p @need
       if @need.completed
