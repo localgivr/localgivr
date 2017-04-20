@@ -7,12 +7,16 @@ img {
     width: 100%;
 }
 
+/*give page*/
+
 #give-header {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://unsplash.it/3264/2448?image=1047);
     background-size: cover;
     padding: 100px 100px 100px 100px;
     color: white;
 }
+
+/*give card */
 
 .thumbnail {
     font-family: 'Raleway', sans-serif;
@@ -40,6 +44,8 @@ img {
     background: #406056;
 }
 
+/*modal*/
+
 .donate-button,
 .modal-header {
     background: #406056;
@@ -50,3 +56,4 @@ img {
     background: #653B40;
     color: white;
 }
+

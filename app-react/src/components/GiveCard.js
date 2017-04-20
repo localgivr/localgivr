@@ -20,6 +20,7 @@ class GiveCard extends React.Component {
     }
 
     donate() {
+
         // send post to backend that need has been filled.
         console.log("LOOK AN ID: "+this.props.id)
         console.log("look a key: "+this.props.index)
