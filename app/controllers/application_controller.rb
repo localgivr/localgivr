@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery unless: -> { request.format.json? }
 
+  def static
+    render file: 'public/index.html'
+  end
 
+  
   private
 
   def request_error(msg, code = 400)
@@ -30,9 +34,6 @@ class ApplicationController < ActionController::Base
     @follow ? @follow.destroy : current_user.follows.create(followable: followee)
   end
 
-  def static
-    render file: 'public/index.html'
-  end
 
 
   def pagination_dict(collection)
