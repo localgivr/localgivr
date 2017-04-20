@@ -31,7 +31,6 @@ class Text extends React.Component {
     }
 
     render() {
-
         return <div className="text">
         <div className="container text-center">
             <div className="text-card">
@@ -39,7 +38,7 @@ class Text extends React.Component {
                 <br/>
                 <img src={this.state.needs.img_url} alt={this.state.needs.title} />
                 <br/>
-                <h3>name!</h3>    
+                <h3>{this.state.needs.org ? this.state.needs.org.name : ''}</h3>    
                 <p>{this.state.needs.story}</p>    
                 <br/>
                 <p><strong>Category: </strong>{this.state.needs.cats}</p>
