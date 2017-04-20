@@ -10,6 +10,7 @@ class Layout extends React.Component {
     this.signedIn = this.signedIn.bind(this)
     this.signout = this.signout.bind(this)
     this.viewAll = this.viewAll.bind(this)
+    this.viewHome = this.viewHome.bind(this)
 
       this.state = {
         email: '',
@@ -65,6 +66,10 @@ class Layout extends React.Component {
 
   viewAll() {
     browserHistory.push('/give')
+  }
+
+  viewHome() {
+    browserHistory.push('/')
   }
 
   viewProfile() {

@@ -33,17 +33,13 @@ class OrgProfile extends React.Component {
 
         return <div className="container">
             <div className="row">
-                <div className="col-sm-5">
                     <OrgView/>
-                </div>
-                <div className="col-sm-6 requests">
-                    <div className="row">
-                        <h2>Open Requests</h2>
-                        {OrgCards}
-                    </div>    
-                </div>
             </div>
-        </div>    
+            <div className="row requests">
+                <h2 className="text-center">Open Requests</h2>
+                {OrgCards}
+            </div>    
+        </div>  
     }
 }
 
