@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params) 
     if @user.save
       # UsersMailer.signup(@user).deliver
       render json: @user, serializer: UserExtendedSerializer
@@ -33,9 +33,9 @@ class UsersController < ApplicationController
   def login
     # binding.pry
     @user = User.find_by(email: params[:user][:email])&.
-              authenticate(params[:user][:password])
+              authenticate(params[:user][:password]) if params[:user]
     @org = Org.find_by(email: params[:user][:email])&.
-              authenticate(params[:user][:password])
+              authenticate(params[:user][:password]) if params[:org]
 
     case
     when @user
