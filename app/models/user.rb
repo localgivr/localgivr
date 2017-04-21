@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates  :first_name, :last_name, :email, :zip, presence: true
 
   def feed(num = 1)
-    result = Need.joins(:cats).for_user(self)
+    result = Need.joins(:cats)
     result = result.where("cats.id" => self.follows.where(followable_type: "Cat").pluck(:followable_id)) if self.follows.exists?(followable_type: "Cat")
     result = result.where(org_id: self.follows.where(followable_type: "Org").pluck(:followable_id)) if self.follows.exists?(followable_type: "Org")
     result = result.where(type_id: self.typings.pluck(:type_id))
