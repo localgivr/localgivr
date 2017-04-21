@@ -12,7 +12,7 @@ class GiveCard extends React.Component {
         this.close = this.close.bind(this)
         this.open = this.open.bind(this)
         // this.getNeeds = this.getNeeds.bind(this)
-        console.log("running constructor....")
+        // console.log("running constructor....")
 
         this.state = {
             showModal: false,
