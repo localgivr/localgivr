@@ -12,6 +12,7 @@ class GiveCard extends React.Component {
         this.close = this.close.bind(this)
         this.open = this.open.bind(this)
         // this.getNeeds = this.getNeeds.bind(this)
+        console.log("running constructor....")
 
         this.state = {
             showModal: false,
@@ -78,15 +79,15 @@ class GiveCard extends React.Component {
                     <div className="thumbnail-house text-center">
                         <img className="thumbnail-img center-block" src={this.props.img_url} alt={this.props.title} />
                     </div>
-                    
+
                 <div className="caption">
                     <div className="background-white text-center">
-                        <h3 className="text-uppercase text-center">{this.props.title}</h3>  
+                        <h3 className="text-uppercase text-center">{this.props.title}</h3>
                         <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> {this.props.city}, {this.props.state}</div> <br/><br/>
                         <p className="text-left">{this.props.story.slice(0, 50)}...</p>
-                        <p className="text-center"><a href="#" className="btn btn-default  modal-button" role="button" onClick={this.open}>Learn More</a></p> 
+                        <p className="text-center"><a href="#" className="btn btn-default  modal-button" role="button" onClick={this.open}>Learn More</a></p>
                     </div>
-                        
+
 
                     <Modal show={this.state.showModal} onHide={this.close}>
                         <Modal.Header closeButton className="modal-header">
