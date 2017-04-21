@@ -22,7 +22,7 @@ class Signup extends React.Component {
     }
 
     signup() {
-        console.log(this.state)
+        //console.log(this.state)
         fetch('/api/users', {
             method: 'POST',
             headers: {
@@ -47,7 +47,6 @@ class Signup extends React.Component {
             return response.json();
         }) 
         .then(function(response) {
-            return console.log(response);
 
             if (response.user.token) {
                 sessionStorage.setItem('token', response.user.token);
