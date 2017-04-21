@@ -82,7 +82,7 @@ class Layout extends React.Component {
     return <div className="body">
     <header>
       <div className="row nav">
-      <div className="col-sm-1">
+      <div className="col-sm-1" onClick={this.viewHome}>
         <h3>local <strong>givr.</strong></h3>
       </div>
         <div className="col-sm-11 col-xs-12 pull-right">
