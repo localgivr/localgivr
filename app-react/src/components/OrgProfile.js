@@ -31,7 +31,7 @@ class OrgProfile extends React.Component {
             return <GiveCard {...need} key={i} />
         })
 
-        return <div className="container">
+        return <div className="container-fluid prof-background">
             <div className="row">
                     <OrgView/>
             </div>

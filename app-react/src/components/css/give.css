@@ -22,7 +22,8 @@ img {
     font-family: 'Raleway', sans-serif;
     border: none;
     /*background: linear-gradient(rgba(193,147,127, 0.75), rgba(153,74,41, 0.75));*/
-    background: #EADBD4;
+    /*background: #EADBD4;*/
+    background: #F7F0EE;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
     color: white;
 }
@@ -32,7 +33,7 @@ img {
     height: 20vw;
     overflow: hidden;
     border-radius: 3px;
-    margin: 5px;
+    margin: 8px;
 }
 
 .thumbnail-img {
@@ -52,9 +53,9 @@ img {
 }
 
 .background-white {
-    background: rgba(255,255,255, .85);
+    background: rgba(255,255,255, 1);
     border-radius: 3px;
-    padding: 15px;
+    padding: 2px 15px;
     color: black;
 }
 

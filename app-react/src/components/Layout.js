@@ -85,8 +85,7 @@ class Layout extends React.Component {
       <div className="col-sm-1">
         <h3>local <strong>givr.</strong></h3>
       </div>
-      <div className="col-sm-5"></div>
-        <div className="col-sm-6">
+        <div className="col-sm-11 col-xs-12 pull-right">
               {signedIn ? (
                 <ul className="list-inline pull-right">
                   <li>
@@ -123,7 +122,7 @@ class Layout extends React.Component {
     </main>
 
     <footer>
-      <h6 className="text-center">Very useful footer info.</h6>
+      <h6 className="text-center">Localgivr. The Iron Yard 2017.</h6>
       {/*<button type="button" className="btn btn-default signUp">Sign Up</button>*/}
     </footer>
     

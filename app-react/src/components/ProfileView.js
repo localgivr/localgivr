@@ -1,5 +1,6 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
+import './css/profile.css'
 
 class ProfileView extends React.Component {
 constructor(props) {
@@ -29,8 +30,8 @@ constructor(props) {
     }
 
     render() {
-        return  <div className="col-sm-6 col-sm-offset-3">
-                    <ul className="list-unstyled text-center" id="user-profile-box">
+        return  <div className="col-sm-4 col-sm-offset-4">
+                    <ul className="list-unstyled text-center user-profile-box">
                         <li><img className="center-block" id="profile-picture" src={this.state.user.img_url} alt="Profile Picture" /></li> <br/>
                         <li className="text-uppercase text-center" id="username"><strong>{this.state.user.first_name}</strong></li><br/>
                         <li className="text-uppercase text-center" id="location">{this.state.user.zip}</li><br/>
