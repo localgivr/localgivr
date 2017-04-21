@@ -14,6 +14,7 @@ class UserOnboard extends React.Component {
         this.state = {
             orgs: [],
             cats: [],
+            name: ''
             // user: {}
         }
     }
@@ -96,7 +97,7 @@ class UserOnboard extends React.Component {
     }
 
     render() {
-        console.log(this.state.orgs)
+        // console.log(this.state.orgs)
         let orgs = this.state.orgs.map((org, i) => <li>
             <div className="checkbox">
                 <label>

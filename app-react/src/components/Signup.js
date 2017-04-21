@@ -130,7 +130,7 @@ class Signup extends React.Component {
                 </div>
                 <div className="form-group">
                     <div className="col-sm-offset-2 col-sm-10">
-                    <button type="button" className="btn btn-default" onClick={this.signup}>Sign up</button>
+                    <button type="button" className="btn btn-default" onClick={this.onboard}>Sign up</button>
                     </div>
                 </div>
                 </div>
