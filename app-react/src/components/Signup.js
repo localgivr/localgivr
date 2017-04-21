@@ -22,7 +22,6 @@ class Signup extends React.Component {
     }
 
     signup() {
-        //console.log(this.state)
         fetch('/api/users', {
             method: 'POST',
             headers: {
@@ -59,10 +58,6 @@ class Signup extends React.Component {
             }
         })
     }
-
-    // onboard() {
-    //     browserHistory.push('/causes')
-    // }
 
     render() {
         return <div className="container-fluid signup-back">
@@ -129,7 +124,7 @@ class Signup extends React.Component {
                 </div>
                 <div className="form-group">
                     <div className="col-sm-offset-2 col-sm-10">
-                    <button type="button" className="btn btn-default" onClick={this.signup}>Sign up</button>
+                    <button type="button" className="btn btn-default" onClick={() => this.signup()}>Sign up</button>
                     </div>
                 </div>
                 </div>

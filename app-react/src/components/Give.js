@@ -42,7 +42,7 @@ class Give extends React.Component {
         return <div className="givePage">
         <div className="row" id="give-header">
             <h1>Give back to your community.</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati fugit molestias doloribus optio ipsam debitis voluptas dolorem nihil, maxime sequi veritatis sunt atque asperiores assumenda reiciendis velit ad iusto tenetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet facilis, id quae a in accusantium, molestias amet deserunt. Ipsam, quas cumque, fuga officiis reprehenderit soluta est. Voluptas, unde totam quidem! </p><br /> <br />
+            <p>Want to give outside your local neighborhood? Search our full collection of need requests and start giving with the click of a button.  </p><br /> <br />
         </div>
 
         <div className="container-fluid">
