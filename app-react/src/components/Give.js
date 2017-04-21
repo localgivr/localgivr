@@ -21,7 +21,6 @@ class Give extends React.Component {
     }
 
     getNeeds() {
-
         fetch('/api/needs')
         .then(res => res.json())
        // .then(res => console.log(res.needs))

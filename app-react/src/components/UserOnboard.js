@@ -98,12 +98,12 @@ class UserOnboard extends React.Component {
 
     render() {
         // console.log(this.state.orgs)
-        let orgs = this.state.orgs.map((org, i) => <li>
+        let orgs = this.state.orgs.map((org, i) => <li key={i}>
             <div className="checkbox">
                 <label>
                     <input type="checkbox" value={org.id} onChange={(e) => this.toggleOrgsFollow(e, i)} checked={org.followed} /> {org.name}
                 </label></div></li>)
-        let cats = this.state.cats.map((cat, i) => <li>
+        let cats = this.state.cats.map((cat, i) => <li key={i}>
             <div className="checkbox">
                 <label>
                     <input type="checkbox" value={cat.id} onChange={(e) => this.toggleCausesFollow(e, i)} checked={cat.followed} /> {cat.name}
