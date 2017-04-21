@@ -22,7 +22,6 @@ class Signup extends React.Component {
     }
 
     signup() {
-        //console.log(this.state)
         fetch('/api/users', {
             method: 'POST',
             headers: {
@@ -59,10 +58,6 @@ class Signup extends React.Component {
             }
         })
     }
-
-    // onboard() {
-    //     browserHistory.push('/causes')
-    // }
 
     render() {
         return <div className="container-fluid signup-back">

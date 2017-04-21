@@ -84,7 +84,28 @@ class UserOnboard extends React.Component {
             orgs[i].followed = (response.message === 'followed')
             this.setState({orgs: orgs})
         })
+    }
 
+    toggleTypeFollow(e, i) {
+        let token = sessionStorage.getItem('token')
+        let id = e.target.getAttribute('value')
+
+        fetch('/api/type/' + id + '/follow?token=' + token, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                token:token,
+                id: id
+            })
+        })
+        .then(response => response.json())
+        .then(response => {
+            let types = this.state.types
+            types[i].followed = (response.message === 'followed')
+            this.setState({types: types})
+        })
     }
 
     viewProfile() {
@@ -103,6 +124,7 @@ class UserOnboard extends React.Component {
                 <label>
                     <input type="checkbox" value={org.id} onChange={(e) => this.toggleOrgsFollow(e, i)} checked={org.followed} /> {org.name}
                 </label></div></li>)
+
         let cats = this.state.cats.map((cat, i) => <li key={i}>
             <div className="checkbox">
                 <label>

@@ -36,13 +36,13 @@ class Homepage extends React.Component {
                 <div className="row">
                     <div className="col-sm-6">
                         <h2>Give.</h2>
-                        <p id="home-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui saepe alias, asperiores recusandae magni et odit dicta? Qui impedit autem deleniti reiciendis illum, necessitatibus architecto ipsum explicabo ab nesciunt facere.</p>
+                        <p id="home-info">Giving back to your community has never been easier. With Localgivr, find needs in your area that don't break the bank. If you find a cause or organization you love, update your user preferences and we will send you curated text messages weekly with opportunities near by.</p>
                         <Button bsSize="large" className="signup-button" onClick={this.signup}>Sign Up</Button>
                     </div> 
                     <div className="col-sm-6">
                         <h2>Request Support.</h2>
-                        <p id="home-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui saepe alias, asperiores recusandae magni et odit dicta? Qui impedit autem deleniti reiciendis illum, necessitatibus architecto ipsum explicabo ab nesciunt facere.</p>
-                        <Button bsSize="large" className="signup-button" onClick={this.orgSignup}>Org Sign Up</Button>
+                        <p id="home-info">Connect with members of your community who care about your cause. Localgivr allows you to bypass any extra work - for you or the user. Post need requests and have them pushed to users on their phone. Meeting needs has never been easier.</p>
+                        <Button bsSize="large" className="signup-button" onClick={this.orgSignup}>Org. Sign Up</Button>
                     </div>
                 </div>
             </div>
