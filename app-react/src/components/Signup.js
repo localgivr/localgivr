@@ -7,7 +7,7 @@ import './css/signup.css'
 class Signup extends React.Component {
     constructor(props) {
         super(props)
-        this.onboard = this.onboard.bind(this)
+        // this.onboard = this.onboard.bind(this)
         this.signup = this.signup.bind(this)
 
         this.state = {
@@ -61,9 +61,9 @@ class Signup extends React.Component {
         })
     }
 
-    onboard() {
-        browserHistory.push('/causes')
-    }
+    // onboard() {
+    //     browserHistory.push('/causes')
+    // }
 
     render() {
         return <div className="container-fluid signup-back">
@@ -130,7 +130,7 @@ class Signup extends React.Component {
                 </div>
                 <div className="form-group">
                     <div className="col-sm-offset-2 col-sm-10">
-                    <button type="button" className="btn btn-default" onClick={this.onboard}>Sign up</button>
+                    <button type="button" className="btn btn-default" onClick={this.signup}>Sign up</button>
                     </div>
                 </div>
                 </div>
