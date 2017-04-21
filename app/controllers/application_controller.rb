@@ -5,12 +5,11 @@ class ApplicationController < ActionController::Base
     render file: 'public/index.html'
   end
 
-  
   private
 
   def request_error(msg, code = 400)
     msg = [msg] unless msg.is_a?(Array)
-    render json: msg.map{ |m| { error: m }}, status: code
+    render json: { errors: msg.map{ |m| { error: m }}}, status: code
   end
 
   def current_user
