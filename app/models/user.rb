@@ -31,7 +31,7 @@ class User < ApplicationRecord
       @client.account.messages.create({
           :to => "3178258855",#user.phone,"248-561-4023", "3178258855"
           :from => '13178544483',
-          :body => "New weekly opportunity to serve:  https://localgivr.herokuapp.com/text/#{user.feed.first.id}"
+          :body => "(local)New weekly opportunity to serve:  https://localgivr.herokuapp.com/text/#{user.feed.first.id}"
       }) unless user.feed.empty?
     end
 
