@@ -4,7 +4,7 @@ class Need < ApplicationRecord
   acts_as_mappable #auto_geocode: {field: :zip, error_message: 'could not be geocoded'}
   before_validation :geocode_zip, :on => :create
 
-  scope :active, -> { where('expiration > ? AND completed = ?', Time.local(2017,4,28), false)}
+  scope :active, -> { where('expiration > ? AND completed = ?', Time.local(2017,4,20), false)}
 
   belongs_to :org, :counter_cache => true
   belongs_to :type
