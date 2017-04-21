@@ -26,7 +26,6 @@ class OrgsController < ApplicationController
       request_error(@org.errors.full_messages)
     end
   end
-
   def login
     @org = Org.find_by(email: params[:email])&.
               authenticate(params[:password])

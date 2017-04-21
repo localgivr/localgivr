@@ -47,19 +47,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def toggle_type
-    @typing = current_user.typings.find_by(type_id: params[:id])
-    result = @typing ? @typing.destroy : current_user.typings.create(type_id: params[:id])
-    if result
-      message = current_user.typings.exists?(type_id: params[:id]) ? "followed" : "unfollowed"
-      render json: {message: message}
-    else
-      request_error("not a type")
-    end
-
-
-  end
-
   # def followed_cats
   #   @cats = current_user.followed_cats
   #   render json: @cats

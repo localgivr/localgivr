@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope :api do
     resources :needs
-    # resources :types
+    resources :types, only: [:index]
     resources :cats, only: [:index]
     resources :orgs
     resources :users
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     # get  '/cats/follow' => 'users#followed_cats'
     post '/cats/:id/follow' => 'cats#follow'
 
-    post '/types/:id/follow' => 'users#toggle_type'
+    post '/types/:id/follow' => 'types#toggle_type'
   end
 
   get "*path" => 'application#static'
