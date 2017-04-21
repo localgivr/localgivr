@@ -29,8 +29,8 @@ constructor(props) {
     }
 
     render() {
-        return  <div className="col-sm-6 col-sm-offset-3">
-                   <ul className="list-unstyled text-center" id="user-profile-box">
+        return  <div className="col-sm-4 col-sm-offset-4">
+                   <ul className="list-unstyled text-center user-profile-box" >
                         <li className="text-uppercase text-center" id="username"><strong><h3>{this.state.org.name}</h3></strong></li><br/>
                         <li className="text-uppercase text-center" id="location">{this.state.org.city}, {this.state.org.state}</li><br/>
                         <li><button type="button" className="btn btn-sm to-request" onClick={this.makeRequest}>Make Request</button></li>
