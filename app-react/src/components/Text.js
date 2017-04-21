@@ -1,5 +1,6 @@
 import React from 'react'
 import './css/text.css'
+import '../helpers/helps.js'
 
 class Text extends React.Component {
     constructor(props) {
@@ -14,12 +15,16 @@ class Text extends React.Component {
 
     textFeed(e, i) {
        // let id = e.target.getAttribute('value')
-       let id = this.props.params.id 
+       let id = this.props.params.id
 
         fetch('/api/needs/' + id)
         .then(res => res.json())
         //.then(res => console.log(res))
-        .then(res => this.setState({needs: res.need}))
+        .then(res => {
+          console.log("hi")
+          this.setState({needs: res.need})
+
+        })
     }
 
     donate() {
@@ -35,18 +40,19 @@ class Text extends React.Component {
         <div className="container text-center">
             <div className="text-card">
                 <h1>{this.state.needs.title}</h1>
+                <h1>{"hi"}</h1>
                 <br/>
                 <img src={this.state.needs.img_url} alt={this.state.needs.title} />
                 <br/>
-                <h3>{this.state.needs.org ? this.state.needs.org.name : ''}</h3>    
-                <p>{this.state.needs.story}</p>    
+                <h3>{this.state.needs.org ? this.state.needs.org.name : ''}</h3>
+                <p>{this.state.needs.story}</p>
                 <br/>
                 <p><strong>Category: </strong>{this.state.needs.cats}</p>
                 <p><strong>Amount Needed: </strong>{this.state.needs.amount}</p>
                 <br/>
                 <button type="button" className="btn donate-button-text" onClick={this.donate}>Donate</button>
             </div>
-        </div>   
+        </div>
     </div>
     }
 }

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     post '/orgs/:id/follow' => 'orgs#follow'
     # get  '/cats/follow' => 'users#followed_cats'
     post '/cats/:id/follow' => 'cats#follow'
+
+    post '/types/:id/follow' => 'users#toggle_type'
   end
 
   get "*path" => 'application#static'

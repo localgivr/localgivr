@@ -20,7 +20,7 @@ Faker::Config.locale = 'en-US'
          "Culture. ",
          "Community. ",
          "Education. ",
-         "Health. ", 
+         "Health. ",
          "Environment. ",
          "Social Justice. "]
 
@@ -111,7 +111,7 @@ end
 def new_follows(users, orgs)
   print "\nadding follows."
   users.each.with_index do |u,i|
-    5.times do
+    8.times do
       print '.'
       u.follows.find_or_create_by!(followable: @cats.sample)
       u.follows.find_or_create_by!(followable: orgs.sample) if rand(1..10) > 7
