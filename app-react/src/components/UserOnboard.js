@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap'
 class UserOnboard extends React.Component {
     constructor(props) {
         super(props)
-        this.give = this.give.bind(this)
+        this.viewProfile = this.viewProfile.bind(this)
         this.getOrgs = this.getOrgs.bind(this)
         this.getCats = this.getCats.bind(this)
 
@@ -86,8 +86,8 @@ class UserOnboard extends React.Component {
 
     }
 
-    give() {
-        browserHistory.push('/give')
+    viewProfile() {
+        browserHistory.push('/profile')
     }
 
     componentDidMount() {
@@ -128,7 +128,7 @@ class UserOnboard extends React.Component {
             </div>
             <br /><br /><br />
             <div className="row text-center give-button">
-                <Button bsStyle="default" bsSize="large" onClick={this.give}>Start Giving</Button>
+                <Button bsStyle="default" bsSize="large" onClick={this.viewProfile}>Start Giving</Button>
             </div>
             <br /><br />
 

@@ -40,7 +40,7 @@ class UserProfile extends React.Component {
             return <GiveCard {...need}  key={i} kickNeed={this.kickNeed} index={i} />
         })
 
-        return <div className="container">
+        return <div className="container-fluid prof-background">
             <div className="row">
                 <ProfileView />
             </div>
