@@ -130,6 +130,12 @@ class Request extends React.Component {
                                 Supplies
                             </label>
                             </div>
+                            <div className="radio">
+                            <label>
+                                <input type="radio" name="type" id="volunteer" value="3" onClick={(e) => this.setState({type_id: e.target.value})} />
+                                Volunteer Opportunity
+                            </label>
+                            </div>
                         </div>
                     </div>
                      <div className="form-group">
