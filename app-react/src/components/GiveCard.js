@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import './css/give.css'
+import {handleErrors} from '../helpers/helps.js'
 
 
 
@@ -11,9 +12,6 @@ class GiveCard extends React.Component {
         this.donate = this.donate.bind(this)
         this.close = this.close.bind(this)
         this.open = this.open.bind(this)
-        // this.getNeeds = this.getNeeds.bind(this)
-        console.log("running constructor....")
-
         this.state = {
             showModal: false,
             // needs: []
@@ -22,9 +20,6 @@ class GiveCard extends React.Component {
 
     donate() {
 
-        // send post to backend that need has been filled.
-        console.log("LOOK AN ID: "+this.props.id)
-        console.log("look a key: "+this.props.index)
 
         // trigger re-render without the clicked need
         this.fillNeed()
@@ -32,7 +27,6 @@ class GiveCard extends React.Component {
         // if success, open link in new page
         // if not, show error
         console.log(this.state)
-        this.props.kickNeed(this.props.index)
         this.setState({ showModal: false });
     }
 
@@ -49,17 +43,23 @@ class GiveCard extends React.Component {
           token: token
         })
       })
-      .then( res => res.json() )
+      .then( res => {
+        res.status === 418 && this.props.kickNeed(this.props.index)
+        return res.json()
+      } )
       .then( res => {
         console.log(res)
-        if (res[0].error) {
-          alert(res[0].error)
+        if (res.errors) {
+          var errors = handleErrors(res.errors)
+          alert(errors)
         } else {
+          this.props.kickNeed(this.props.index)
           window.open(this.props.link, '_blank')
         }
       })
 
     }
+
 
     close() {
         this.setState({ showModal: false });
@@ -85,7 +85,7 @@ class GiveCard extends React.Component {
                         <h3 className="text-uppercase text-center">{this.props.title}</h3>
                         <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> {this.props.city}, {this.props.state}</div> <br/><br/>
                         <p className="text-left">{this.props.story.slice(0, 50)}...</p>
-                        <p className="text-center"><button type="button" className="btn btn-default" onClick={this.open}>Learn More</button></p> 
+                        <p className="text-center"><button type="button" className="btn btn-default" onClick={this.open}>Learn More</button></p>
 
 
                     </div>

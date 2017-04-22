@@ -9,7 +9,7 @@ class OrgsController < ApplicationController
   end
 
   def show
-    @needs = current_org.needs
+    @needs = current_org.needs #TODO: active? or badge to show completed?
     case params[:id]
     when 'needs' then render json: @needs
     when 'profile' then render json: current_org

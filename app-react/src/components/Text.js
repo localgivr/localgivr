@@ -1,6 +1,7 @@
 import React from 'react'
 import './css/text.css'
 import '../helpers/helps.js'
+import {handleErrors} from '../helpers/helps.js'
 
 class Text extends React.Component {
     constructor(props) {
@@ -15,20 +16,41 @@ class Text extends React.Component {
 
     textFeed(e, i) {
        // let id = e.target.getAttribute('value')
-       let id = this.props.params.id
+      let id = this.props.params.id
+      console.log("params:")
+      console.log(this.props.params)
 
-        fetch('/api/needs/' + id)
-        .then(res => res.json())
-        //.then(res => console.log(res))
-        .then(res => {
-          console.log("hi")
-          this.setState({needs: res.need})
-
-        })
+      fetch('/api/needs/' + id)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({needs: res.need})
+      })
     }
 
     donate() {
-        window.open(this.state.needs.link, '_blank')
+      let id = this.props.params.id
+      let token = this.props.params.token.slice(0, -8)
+      console.log(token)
+      fetch('/api/needs/'+ id, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          token: token
+        })
+      })
+      .then( res => res.json())
+      .then( res => {
+        console.log(res)
+        if (res.errors) {
+          var errors = handleErrors(res.errors)
+          alert(errors)
+        } else {
+          window.open(this.props.link, '_blank')
+        }
+      })
     }
 
      componentDidMount() {
