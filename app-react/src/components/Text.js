@@ -29,7 +29,7 @@ class Text extends React.Component {
 
     donate() {
       let id = this.props.params.id
-      let token = this.props.params.token
+      let token = this.props.params.token.slice(0, -8)
       console.log(token)
       fetch('/api/needs/'+ id, {
         method: 'PATCH',
