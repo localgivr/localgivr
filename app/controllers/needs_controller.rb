@@ -3,7 +3,7 @@ class NeedsController < ApplicationController
   before_action :require_user, only: [:update]
 
   def index
-    @needs = Need.all
+    @needs = Need.all.active
     render json: @needs#, meta: pagination_dict(@needs)
   end
 

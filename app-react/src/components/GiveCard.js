@@ -11,8 +11,6 @@ class GiveCard extends React.Component {
         this.donate = this.donate.bind(this)
         this.close = this.close.bind(this)
         this.open = this.open.bind(this)
-        // this.getNeeds = this.getNeeds.bind(this)
-        console.log("running constructor....")
 
         this.state = {
             showModal: false,
@@ -52,8 +50,13 @@ class GiveCard extends React.Component {
       .then( res => res.json() )
       .then( res => {
         console.log(res)
-        if (res[0].error) {
-          alert(res[0].error)
+        if (res.errors) {
+          var errors = ""
+          res.errors.forEach(
+            e => {errors += e.error + " "}
+          )
+          console.log(errors)
+          alert(errors)
         } else {
           window.open(this.props.link, '_blank')
         }
