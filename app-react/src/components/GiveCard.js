@@ -88,7 +88,9 @@ class GiveCard extends React.Component {
                         <h3 className="text-uppercase text-center">{this.props.title}</h3>
                         <div className="badge badge-success text-uppercase location"><span className="glyphicon glyphicon-map-marker"></span> {this.props.city}, {this.props.state}</div> <br/><br/>
                         <p className="text-left">{this.props.story.slice(0, 50)}...</p>
-                        <p className="text-center"><a href="#" className="btn btn-default  modal-button" role="button" onClick={this.open}>Learn More</a></p>
+                        <p className="text-center"><button type="button" className="btn btn-default" onClick={this.open}>Learn More</button></p> 
+
+
                     </div>
 
 
