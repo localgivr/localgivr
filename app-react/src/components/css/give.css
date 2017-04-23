@@ -55,6 +55,7 @@ img {
     background: rgba(255,255,255, 1);
     border-radius: 3px;
     padding: 2px 15px;
+    min-height: 205px;
     color: black;
 }
 
