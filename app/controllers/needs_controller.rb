@@ -10,7 +10,6 @@ class NeedsController < ApplicationController
   def show
     @need = Need.find_by(id: params[:id])
     @need ? render(json: @need) : request_error("need not found")
-
   end
 
   def create
