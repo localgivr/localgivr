@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 
-// import page components 
+// import page components
 import Layout from './components/Layout';
 import Homepage from './components/Homepage'
 import Signup from './components/Signup'
@@ -26,7 +26,7 @@ ReactDOM.render(
           <Route path='give' component={Give} />
           <Route path='request' component={Request} />
           <Route path='profile' component={isOrg ? OrgProfile : UserProfile} />
-          <Route path='text(/:id)' component={Text} />
+          <Route path='text(/:id/:token)' component={Text} />
           <Route path='causes' component={UserOnboard} />
         </Route>
     </Router>,

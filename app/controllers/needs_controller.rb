@@ -3,14 +3,13 @@ class NeedsController < ApplicationController
   before_action :require_user, only: [:update]
 
   def index
-    @needs = Need.all
+    @needs = Need.all.active
     render json: @needs#, meta: pagination_dict(@needs)
   end
 
   def show
     @need = Need.find_by(id: params[:id])
     @need ? render(json: @need) : request_error("need not found")
-
   end
 
   def create
@@ -31,7 +30,7 @@ class NeedsController < ApplicationController
       p @need
       if @need.completed
 
-        request_error("need has already been completed!")
+        request_error("need has already been completed!", 418)
       else
         @need.update(completed: true)
         current_user.increment('needs_met', 1)
