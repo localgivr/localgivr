@@ -91,7 +91,7 @@ class Request extends React.Component {
         return <div>
         <div className="request-header">
         <h1>How can your community lend a hand?</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur saepe, architecto animi doloribus enim impedit deserunt, illum placeat atque corrupti incidunt odit officiis veritatis fugit eum. Quam hic quisquam cumque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam voluptate placeat veritatis porro ducimus consequuntur adipisci expedita nulla error, consequatur, autem laboriosam beatae corrupti voluptatum ullam saepe ab, deserunt quasi.</p> <br/> <br/>
+        <p></p> <br/> <br/>
         </div>   
         <div className="container"> 
             <div className="request-form">

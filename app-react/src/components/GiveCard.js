@@ -20,7 +20,6 @@ class GiveCard extends React.Component {
 
     donate() {
 
-
         // trigger re-render without the clicked need
         this.fillNeed()
         // try and fill with database
@@ -57,7 +56,6 @@ class GiveCard extends React.Component {
           window.open(this.props.link, '_blank')
         }
       })
-
     }
 
 
