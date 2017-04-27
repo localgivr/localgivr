@@ -25,7 +25,7 @@ class Homepage extends React.Component {
         return <div>
         <div className="container-fluid home-header"><p>  </p></div>
         <div className="container-fluid home-background">
-            <h2 id="home-banner">Homegrown micro-philanthropy.</h2><br/>
+            <h2 id="home-banner">Micro-philanthropy without the friction.</h2><br/>
             <p>Give back to your community without breaking the bank.</p> 
             <p>Recieve text notifications when organizations in your area have a giving opportunity.</p> 
             <p>Donate small-scale money or supplies.</p> 

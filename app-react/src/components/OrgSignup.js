@@ -60,10 +60,10 @@ class OrgSignup extends React.Component {
 
     render() {
         return <div> 
-        <div className="org-give-header">
+        {/*<div className="org-give-header">
             <h1>Community-backed resources.</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus eos dignissimos numquam provident nostrum maxime voluptatem, natus quo repudiandae odio distinctio, praesentium cumque quis quasi vel pariatur accusamus corporis!</p>
-        </div>
+            <p>Connect with your community. When the neighborhood feels invested in your organization, you are building a life-long partnership. With your Localgivr account, </p>
+        </div>*/}
         <div className="container-fluid signup-back">
             <div className="container org-give-card">
                 <div className="row org-signup-form">
