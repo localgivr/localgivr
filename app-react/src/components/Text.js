@@ -62,7 +62,6 @@ class Text extends React.Component {
         <div className="container text-center">
             <div className="text-card">
                 <h1>{this.state.needs.title}</h1>
-                <h1>{"hi"}</h1>
                 <br/>
                 <img src={this.state.needs.img_url} alt={this.state.needs.title} />
                 <br/>
