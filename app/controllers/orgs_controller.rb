@@ -19,6 +19,7 @@ class OrgsController < ApplicationController
 
   def create
     @org = Org.new(org_params)
+    
     if @org.save
       # UsersMailer.signup(@org).deliver
       render json: @org, serializer: OrgExtendedSerializer

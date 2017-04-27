@@ -2,8 +2,6 @@ import React from 'react'
 import { browserHistory } from 'react-router'
 import './css/signup.css'
 
-
-
 class Signup extends React.Component {
     constructor(props) {
         super(props)
@@ -66,7 +64,6 @@ class Signup extends React.Component {
             <div className="signup-card">
                 <div className="signup-text">
                     <h1>Sign up to start making an impact.</h1>
-                    <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident possimus earum velit culpa officia neque, aperiam similique ipsam debitis modi! Voluptatibus beatae nam sequiadipisicing elit.</h5>
                 </div>
                 <br/><br/>
 
