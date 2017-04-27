@@ -43,7 +43,7 @@ class OrgSignup extends React.Component {
 
         .then(function(response) {
             return response.json();
-        }) 
+        })
         .then(function(response) {
             if (response.org.token) {
                 sessionStorage.setItem('token', response.org.token);
@@ -59,7 +59,7 @@ class OrgSignup extends React.Component {
 
 
     render() {
-        return <div> 
+        return <div>
         <div className="org-give-header">
             <h1>Community-backed resources.</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus eos dignissimos numquam provident nostrum maxime voluptatem, natus quo repudiandae odio distinctio, praesentium cumque quis quasi vel pariatur accusamus corporis!</p>
@@ -138,4 +138,4 @@ class OrgSignup extends React.Component {
     }
 }
 
-export default OrgSignup 
+export default OrgSignup
