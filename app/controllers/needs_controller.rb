@@ -32,7 +32,7 @@ class NeedsController < ApplicationController
 
         request_error("need has already been completed!", 418)
       else
-        @need.update(completed: true)
+        # @need.update(completed: true)
         current_user.increment('needs_met', 1)
         current_user.save
         render json: @need

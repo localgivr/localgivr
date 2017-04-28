@@ -73,6 +73,7 @@ end
 def reset_needs
   Need.where(completed: true).each do |n|
     n.update(completed: false)
+    n.save
   end
 end
 
