@@ -70,8 +70,16 @@ def new_orgs
   third_org
 end
 
+def reset_needs
+  Need.where(completed: true).each do |n|
+    n.update(completed: false)
+  end
+end
+
 
 @cats.map!{ |c| Cat.find_or_create_by(name: c)}
 @types.map!{ |t| Type.find_or_create_by(name: t)}
 
 Org.all.length < 3 ? new_orgs : Org.all
+
+Need.where(completed: true).count > Need.count/2 && reset_needs
