@@ -70,4 +70,8 @@ def new_orgs
   third_org
 end
 
+
+@cats.map!{ |c| Cat.find_or_create_by(name: c)}
+@types.map!{ |t| Type.find_or_create_by(name: t)}
+
 Org.all.length < 3 ? new_orgs : Org.all
