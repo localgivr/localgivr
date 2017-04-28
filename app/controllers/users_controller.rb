@@ -45,6 +45,7 @@ class UsersController < ApplicationController
       request_error("Invalid email or password", 401)
     end
   end
+  
 
   # def followed_cats
   #   @cats = current_user.followed_cats
