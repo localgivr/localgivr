@@ -31,11 +31,10 @@ class UsersController < ApplicationController
   end
 
   def login
-    # binding.pry
     @user = User.find_by(email: params[:user][:email])&.
-              authenticate(params[:user][:password]) if params[:user]
+              authenticate(params[:user][:password])
     @org = Org.find_by(email: params[:user][:email])&.
-              authenticate(params[:user][:password]) if params[:org]
+              authenticate(params[:user][:password])
 
     case
     when @user
