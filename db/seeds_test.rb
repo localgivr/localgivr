@@ -119,7 +119,6 @@ def new_follows(users, orgs)
   end
 end
 
-
 # actually run stuff here:
 
 @cats.map!{ |c| Cat.find_or_create_by(name: c)}
